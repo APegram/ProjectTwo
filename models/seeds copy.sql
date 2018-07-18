@@ -1,0 +1,10 @@
+INSERT INTO user_Table (name, admin, password) VALUES ("Bob", false, "hello");
+INSERT INTO user_Table (name, admin, password) VALUES ("Jeff", true, "hello");
+INSERT INTO user_Table (name, admin, password) VALUES ("Pawel", false, "hello");
+INSERT INTO user_Table (name, admin, password) VALUES ("Doyle", true, "hello");
+INSERT INTO user_Table (name, admin, password) VALUES ("Matt", true, "hello");
+INSERT INTO user_Table (name, admin, password) VALUES ("Morgan", true, "hello");
+INSERT INTO user_Table (name, admin, password) VALUES ("Stewart", false, "hello");
+INSERT INTO user_Table (name, admin, password) VALUES ("Stephan", false, "hello");
+INSERT INTO user_Table (name, admin, password) VALUES ("Adam", false, "hello");
+INSERT INTO user_Table (name, admin, password) VALUES ("Blaise", false, "hello");
