@@ -30,6 +30,15 @@ stepTwelve BOOLEAN,
 PRIMARY KEY (id)
 )
 
+-- This table will be used to house the comments/issues that students have along the way in their steps.
+CREATE TABLE comments (
+    id INT NOT NULL AUTO_INCREMENT,
+    text VARCHAR(140),
+    name VARCHAR(50),
+    stepNum INT,
+    PRIMARY KEY (id)
+)
+
 CREATE TABLE exerciseOne(
 id INT NOT NULL AUTO_INCREMENT,
 Title VARCHAR(50),
