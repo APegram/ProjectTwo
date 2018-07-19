@@ -1,5 +1,5 @@
 module.exports = function(sequelize, Sequelize) {
-    var Module15 = sequelize.define("module15", {
+    var Module14 = sequelize.define("module14", {
       title: {type: Sequelize.TEXT},
       description: {type: Sequelize.TEXT},
       countDown: {type: Sequelize.INTEGER},
@@ -16,5 +16,5 @@ module.exports = function(sequelize, Sequelize) {
       stepEleven: {type: Sequelize.TEXT},
       stepTwelve: {type: Sequelize.TEXT}
     });
-    return Module15;
+    return Module14;
   };
