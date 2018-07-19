@@ -2,9 +2,15 @@
 
 module.exports = function(sequelize, Sequelize) {
     var Chats = sequelize.define("chats", {
-    //   text: {type: Sequelize.STRING},
-    //   name: {type: Sequelize.STRING},
-    //   stepNum: {type: Sequelize.INTEGER}
+        text: {
+            type: Sequelize.TEXT
+        },
+        userName: {
+            type: Sequelize.STRING
+        },
+        currentTime: {
+            type: Sequelize.NOW
+        }
     });
     return Chats;
-  };
+};
