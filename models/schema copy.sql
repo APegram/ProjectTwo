@@ -30,3 +30,11 @@ Step_9 VARCHAR (200),
 Step_10 VARCHAR (200)
 PRIMARY KEY (id)
 )
+
+CREATE TABLE comments(
+id INT NOT NULL AUTO_INCREMENT,
+student_text BLOB,
+Students VARCHAR(30),
+step INT(30),
+PRIMARY KEY (id)
+)
