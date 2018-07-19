@@ -1,13 +1,18 @@
-INSERT INTO user_Table (name, admin, password) VALUES ("Bob", false, "hello");
-INSERT INTO user_Table (name, admin, password) VALUES ("Jeff", true, "hello");
-INSERT INTO user_Table (name, admin, password) VALUES ("Pawel", false, "hello");
-INSERT INTO user_Table (name, admin, password) VALUES ("Doyle", true, "hello");
-INSERT INTO user_Table (name, admin, password) VALUES ("Matt", true, "hello");
-INSERT INTO user_Table (name, admin, password) VALUES ("Morgan", true, "hello");
-INSERT INTO user_Table (name, admin, password) VALUES ("Stewart", false, "hello");
-INSERT INTO user_Table (name, admin, password) VALUES ("Stephan", false, "hello");
-INSERT INTO user_Table (name, admin, password) VALUES ("Adam", false, "hello");
-INSERT INTO user_Table (name, admin, password) VALUES ("Blaise", false, "hello");
+INSERT INTO userTable (admin, name, userName, email, password, theme) VALUES (false, "Bob", "mynameisbob", "bob@gmail.com", "hello", "Black");
+INSERT INTO userTable (admin, name, userName, email, password, theme) VALUES (true, "Jeff", "mynameisjeff", "jeff@gmail.com", "hello", "Black");
+INSERT INTO userTable (admin, name, userName, email, password, theme) VALUES (false, "Pawel", "mynameispawel", "pawel@gmail.com", "hello", "Black");
+INSERT INTO userTable (admin, name, userName, email, password, theme) VALUES (true, "Doyle", "mynameisdoyle", "doyle@gmail.com", "hello", "Black");
+INSERT INTO userTable (admin, name, userName, email, password, theme) VALUES (true, "Matt", "mynameismatt", "matt@gmail.com", "hello", "Black");
+INSERT INTO userTable (admin, name, userName, email, password, theme) VALUES (true, "Morgan", "mynameismorgan", "morgan@gmail.com", "hello", "Black");
+INSERT INTO userTable (admin, name, userName, email, password, theme) VALUES (false, "Stewart", "mynameisstewart", "stewar@gmail.com", "hello", "Black");
+INSERT INTO userTable (admin, name, userName, email, password, theme) VALUES (false, "Stephen", "mynameisstephen", "stephen@gmail.com", "hello", "Black");
+INSERT INTO userTable (admin, name, userName, email, password, theme) VALUES (false, "Adam", "mynameisadam", "adam@gmail.com", "hello", "Black");
+INSERT INTO userTable (admin, name, userName, email, password, theme) VALUES (false, "Blaise", "mynameisblaise", "blaise@gmail.com", "hello", "Black");
+
+
+INSERT INTO comments (text, name, stepNum) VALUES ("Help me TAs! I'm no where close to Blaise!", "Stephen", 1);
+INSERT INTO comments (text, name, stepNum) VALUES ("Help me TAs! I wish I was as good as Blaise!", "Stewart", 0);
+
 
 --sequelize module seeds
 INSERT INTO `TensionDB`.`exerciseOne` (`id`, `Title`, `description`, `countDown`, `Step_1`, `Step_2`, `Step_3`, `Step_4`, `Step_5`, `Step_6`) VALUES ('1', 'Chirpy', 'exercise one', '5:00', ' * Using the app skeleton provided to you:', '* Create a MySQL database named `\'chirpy\'` with a `\'chirps\'` table to hold your data.', '* Your `\'chirp\'` table should include a field for id, author, chirp, and time created.', '* Modify the connection.js file to create a connection to your database.', '* Modify the api-routes.js file so that there is a route for adding a new chirp, as well as retrieving all chirps.', '* Modify the chirps.js file so that the page interacts with the database.');
