@@ -40,6 +40,8 @@ CREATE TABLE comments (
     PRIMARY KEY (id)
 )
 
+
+-- Module 15
 CREATE TABLE exerciseOne(
 id INT NOT NULL AUTO_INCREMENT,
 Title VARCHAR(50),
@@ -54,6 +56,261 @@ Step_6 VARCHAR (200),
 Step_7 VARCHAR (200),
 Step_8 VARCHAR (200),
 Step_9 VARCHAR (200),
-Step_10 VARCHAR (200)
+Step_10 VARCHAR (200),
+PRIMARY KEY (id)
+)
+--module 14
+CREATE TABLE exerciseTwo(
+id INT NOT NULL AUTO_INCREMENT,
+Title VARCHAR(50),
+description VARCHAR(100),
+countDown INT(100) NOT NULL,
+Step_1 VARCHAR (200),
+Step_2 VARCHAR (200),
+Step_3 VARCHAR (200),
+Step_4 VARCHAR (200),
+Step_5 VARCHAR (200),
+Step_6 VARCHAR (200),
+Step_7 VARCHAR (200),
+Step_8 VARCHAR (200),
+Step_9 VARCHAR (200),
+Step_10 VARCHAR (200),
+PRIMARY KEY (id)
+)
+--module 13
+CREATE TABLE exerciseThree(
+id INT NOT NULL AUTO_INCREMENT,
+Title VARCHAR(50),
+description VARCHAR(100),
+countDown INT(100) NOT NULL,
+Step_1 VARCHAR (200),
+Step_2 VARCHAR (200),
+Step_3 VARCHAR (200),
+Step_4 VARCHAR (200),
+Step_5 VARCHAR (200),
+Step_6 VARCHAR (200),
+Step_7 VARCHAR (200),
+Step_8 VARCHAR (200),
+Step_9 VARCHAR (200),
+Step_10 VARCHAR (200),
+PRIMARY KEY (id)
+)
+--module 12
+CREATE TABLE exerciseFour(
+id INT NOT NULL AUTO_INCREMENT,
+Title VARCHAR(50),
+description VARCHAR(100),
+countDown INT(100) NOT NULL,
+Step_1 VARCHAR (200),
+Step_2 VARCHAR (200),
+Step_3 VARCHAR (200),
+Step_4 VARCHAR (200),
+Step_5 VARCHAR (200),
+Step_6 VARCHAR (200),
+Step_7 VARCHAR (200),
+Step_8 VARCHAR (200),
+Step_9 VARCHAR (200),
+Step_10 VARCHAR (200),
+PRIMARY KEY (id)
+)
+--module 11
+CREATE TABLE exerciseFive(
+id INT NOT NULL AUTO_INCREMENT,
+Title VARCHAR(50),
+description VARCHAR(100),
+countDown INT(100) NOT NULL,
+Step_1 VARCHAR (200),
+Step_2 VARCHAR (200),
+Step_3 VARCHAR (200),
+Step_4 VARCHAR (200),
+Step_5 VARCHAR (200),
+Step_6 VARCHAR (200),
+Step_7 VARCHAR (200),
+Step_8 VARCHAR (200),
+Step_9 VARCHAR (200),
+Step_10 VARCHAR (200),
+PRIMARY KEY (id)
+)
+--module 10
+CREATE TABLE exerciseSix(
+id INT NOT NULL AUTO_INCREMENT,
+Title VARCHAR(50),
+description VARCHAR(100),
+countDown INT(100) NOT NULL,
+Step_1 VARCHAR (200),
+Step_2 VARCHAR (200),
+Step_3 VARCHAR (200),
+Step_4 VARCHAR (200),
+Step_5 VARCHAR (200),
+Step_6 VARCHAR (200),
+Step_7 VARCHAR (200),
+Step_8 VARCHAR (200),
+Step_9 VARCHAR (200),
+Step_10 VARCHAR (200),
+PRIMARY KEY (id)
+)
+--module 9
+CREATE TABLE exerciseSeven(
+id INT NOT NULL AUTO_INCREMENT,
+Title VARCHAR(50),
+description VARCHAR(100),
+countDown INT(100) NOT NULL,
+Step_1 VARCHAR (200),
+Step_2 VARCHAR (200),
+Step_3 VARCHAR (200),
+Step_4 VARCHAR (200),
+Step_5 VARCHAR (200),
+Step_6 VARCHAR (200),
+Step_7 VARCHAR (200),
+Step_8 VARCHAR (200),
+Step_9 VARCHAR (200),
+Step_10 VARCHAR (200),
+PRIMARY KEY (id)
+)
+--module 8
+CREATE TABLE exerciseEight(
+id INT NOT NULL AUTO_INCREMENT,
+Title VARCHAR(50),
+description VARCHAR(100),
+countDown INT(100) NOT NULL,
+Step_1 VARCHAR (200),
+Step_2 VARCHAR (200),
+Step_3 VARCHAR (200),
+Step_4 VARCHAR (200),
+Step_5 VARCHAR (200),
+Step_6 VARCHAR (200),
+Step_7 VARCHAR (200),
+Step_8 VARCHAR (200),
+Step_9 VARCHAR (200),
+Step_10 VARCHAR (200),
+PRIMARY KEY (id)
+)
+--module 7
+CREATE TABLE exerciseNine(
+id INT NOT NULL AUTO_INCREMENT,
+Title VARCHAR(50),
+description VARCHAR(100),
+countDown INT(100) NOT NULL,
+Step_1 VARCHAR (200),
+Step_2 VARCHAR (200),
+Step_3 VARCHAR (200),
+Step_4 VARCHAR (200),
+Step_5 VARCHAR (200),
+Step_6 VARCHAR (200),
+Step_7 VARCHAR (200),
+Step_8 VARCHAR (200),
+Step_9 VARCHAR (200),
+Step_10 VARCHAR (200),
+PRIMARY KEY (id)
+)
+--module 1
+CREATE TABLE exerciseSix(
+id INT NOT NULL AUTO_INCREMENT,
+Title VARCHAR(50),
+description VARCHAR(100),
+countDown INT(100) NOT NULL,
+Step_1 VARCHAR (200),
+Step_2 VARCHAR (200),
+Step_3 VARCHAR (200),
+Step_4 VARCHAR (200),
+Step_5 VARCHAR (200),
+Step_6 VARCHAR (200),
+Step_7 VARCHAR (200),
+Step_8 VARCHAR (200),
+Step_9 VARCHAR (200),
+Step_10 VARCHAR (200),
+PRIMARY KEY (id)
+)
+
+
+-- module 5
+CREATE TABLE exerciseTen(
+id INT NOT NULL AUTO_INCREMENT,
+Title VARCHAR(50),
+description VARCHAR(100),
+countDown INT(100) NOT NULL,
+Step_1 VARCHAR (200),
+Step_2 VARCHAR (200),
+Step_3 VARCHAR (200),
+Step_4 VARCHAR (200),
+Step_5 VARCHAR (200),
+Step_6 VARCHAR (200),
+Step_7 VARCHAR (200),
+Step_8 VARCHAR (200),
+Step_9 VARCHAR (200),
+Step_10 VARCHAR (200),
+PRIMARY KEY (id)
+)
+--module 4
+CREATE TABLE exerciseEleven(
+id INT NOT NULL AUTO_INCREMENT,
+Title VARCHAR(50),
+description VARCHAR(100),
+countDown INT(100) NOT NULL,
+Step_1 VARCHAR (200),
+Step_2 VARCHAR (200),
+Step_3 VARCHAR (200),
+Step_4 VARCHAR (200),
+Step_5 VARCHAR (200),
+Step_6 VARCHAR (200),
+Step_7 VARCHAR (200),
+Step_8 VARCHAR (200),
+Step_9 VARCHAR (200),
+Step_10 VARCHAR (200),
+PRIMARY KEY (id)
+)
+--module 3
+CREATE TABLE exerciseTwelve(
+id INT NOT NULL AUTO_INCREMENT,
+Title VARCHAR(50),
+description VARCHAR(100),
+countDown INT(100) NOT NULL,
+Step_1 VARCHAR (200),
+Step_2 VARCHAR (200),
+Step_3 VARCHAR (200),
+Step_4 VARCHAR (200),
+Step_5 VARCHAR (200),
+Step_6 VARCHAR (200),
+Step_7 VARCHAR (200),
+Step_8 VARCHAR (200),
+Step_9 VARCHAR (200),
+Step_10 VARCHAR (200),
+PRIMARY KEY (id)
+)
+--module 2
+
+CREATE TABLE exerciseThirteen(
+id INT NOT NULL AUTO_INCREMENT,
+Title VARCHAR(50),
+description VARCHAR(100),
+countDown INT(100) NOT NULL,
+Step_1 VARCHAR (200),
+Step_2 VARCHAR (200),
+Step_3 VARCHAR (200),
+Step_4 VARCHAR (200),
+Step_5 VARCHAR (200),
+Step_6 VARCHAR (200),
+Step_7 VARCHAR (200),
+Step_8 VARCHAR (200),
+Step_9 VARCHAR (200),
+Step_10 VARCHAR (200),
+PRIMARY KEY (id)
+)
+--module 1
+CREATE TABLE exerciseFourteen(
+id INT NOT NULL AUTO_INCREMENT,
+Title VARCHAR(50),
+description VARCHAR(100),
+countDown INT(100) NOT NULL,
+Step_1 VARCHAR (200),
+Step_2 VARCHAR (200),
+Step_3 VARCHAR (200),
+Step_4 VARCHAR (200),
+Step_5 VARCHAR (200),
+Step_6 VARCHAR (200),
+Step_7 VARCHAR (200),
+Step_8 VARCHAR (200),
+Step_9 VARCHAR (200),
+Step_10 VARCHAR (200),
 PRIMARY KEY (id)
 )
