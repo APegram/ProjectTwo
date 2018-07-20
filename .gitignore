@@ -59,3 +59,8 @@ typings/
 
 # next.js build output
 .next
+
+# SDG files
+yarn.lock
+gulpfile.js
+scss/
