@@ -9,7 +9,7 @@ module.exports = function(sequelize, Sequelize) {
             type: Sequelize.STRING
         },
         currentTime: {
-            type: Sequelize.NOW
+            type: Sequelize.DATE, defaultValue: Sequelize.NOW
         }
     });
     return Chats;
