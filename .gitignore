@@ -59,3 +59,17 @@ typings/
 
 # next.js build output
 .next
+
+addons
+bootstrap.css
+bootstrap.min
+mdb.css
+mdb.min.css
+style.min.css
+modules
+scss
+bootstrap.js
+bootstrap.min.js
+mdb.js
+mdb.min.js
+popper.min.js

@@ -12,7 +12,7 @@ id INT NOT NULL AUTO_INCREMENT,
 admin BOOLEAN DEFAULT false NOT NULL,
 name VARCHAR(50) NOT NULL,
 userName VARCHAR(25),
-email VARCHAR(100) NOT NULL,
+email VARCHAR(100) NOT NULL UNIQUE,
 password VARCHAR(30) NOT NULL,
 theme VARCHAR(20),
 issue BOOLEAN DEFAULT false NOT NULL,
@@ -29,7 +29,7 @@ stepTen BOOLEAN,
 stepEleven BOOLEAN,
 stepTwelve BOOLEAN,
 PRIMARY KEY (id)
-)
+);
 
 -- This table will be used to house the comments/issues that students have along the way in their steps.
 CREATE TABLE comments (
@@ -38,7 +38,7 @@ CREATE TABLE comments (
     name VARCHAR(50),
     stepNum INT,
     PRIMARY KEY (id)
-)
+);
 
 CREATE TABLE exerciseOne(
 id INT NOT NULL AUTO_INCREMENT,
@@ -54,6 +54,6 @@ Step_6 VARCHAR (200),
 Step_7 VARCHAR (200),
 Step_8 VARCHAR (200),
 Step_9 VARCHAR (200),
-Step_10 VARCHAR (200)
+Step_10 VARCHAR (200),
 PRIMARY KEY (id)
 )
