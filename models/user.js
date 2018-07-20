@@ -1,5 +1,5 @@
 module.exports = function(sequelize, Sequelize) {
-  var User = sequelize.define("user", {
+  var User = sequelize.define("userTable",{
     admin: {type: Sequelize.BOOLEAN, allowNull: false, defaultValue: false},
     name: {type: Sequelize.STRING, allowNull: false},
     userName: {type: Sequelize.STRING},
@@ -19,6 +19,11 @@ module.exports = function(sequelize, Sequelize) {
     stepTen: {type: Sequelize.BOOLEAN},
     stepEleven: {type: Sequelize.BOOLEAN},
     stepTwelve: {type: Sequelize.BOOLEAN}
-  });
+    },
+    {
+    freezeTableName: true,
+    timestamps: false
+  } 
+);
   return User;
 };
