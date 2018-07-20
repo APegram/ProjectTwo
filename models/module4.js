@@ -1,5 +1,5 @@
 module.exports = function(sequelize, Sequelize) {
-    var Module14 = sequelize.define("module14", {
+    var Module4 = sequelize.define("module4", {
         title: {
             type: Sequelize.TEXT
         },
@@ -46,5 +46,5 @@ module.exports = function(sequelize, Sequelize) {
             type: Sequelize.TEXT
         }
     });
-    return Module14;
+    return Module4;
 };
