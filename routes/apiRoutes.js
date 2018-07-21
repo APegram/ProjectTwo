@@ -60,11 +60,11 @@ module.exports = function (app) {
       }
 
       if (results.admin === true){
-        return res.send("admin");
+        return res.send([results.name, "admin"]);
       } 
 
       //otherwise send student
-      res.send("student");
+      res.send([results.name, "student"]);
     })
   })
 }
