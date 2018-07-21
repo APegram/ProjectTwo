@@ -297,15 +297,33 @@
                                         <!-- Card body -->
                                         <div id="collapse1" class="collapse show" role="tabpanel" aria-labelledby="heading1" data-parent="#accordionEx7">
                                             <div class="card-body mb-1 rgba-grey-light white-text">
-                                                <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
-                                                    richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard
-                                                    dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf
-                                                    moon tempor, sunt aliqua put a bird on it squid single-origin coffee
-                                                    nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer
-                                                    labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur
-                                                    butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim
-                                                    aesthetic synth nesciunt you probably haven't heard of them accusamus
-                                                    labore sustainable.</p>
+                                                {{#each email}}
+                                                    {{#if stepOne}}
+                                                        {{#if stepTwo}}
+                                                            {{#if stepThree}}
+                                                                {{#if stepFour}}
+                                                                    {{#if stepFive}}
+                                                                        {{#if stepSix}}
+                                                                            {{#if stepSeven}}
+                                                                                {{#if stepEight}}
+                                                                                    {{#if stepNine}}
+                                                                                        {{#if stepTen}}
+                                                                                            {{#if stepEleven}}
+                                                                                                {{#if stepTwelve}}
+                                                                                                    <p>{{name}} is complete</p>
+                                                                                                {{/if}}
+                                                                                            {{/if}}
+                                                                                        {{/if}}
+                                                                                    {{/if}}
+                                                                                {{/if}}
+                                                                            {{/if}}
+                                                                        {{/if}}
+                                                                    {{/if}}
+                                                                {{/if}}
+                                                            {{/if}}
+                                                        {{/if}}
+                                                    {{/if}}
+                                                {{/each}}
                                             </div>
                                         </div>
                                     </div>
@@ -324,15 +342,11 @@
                                         <!-- Card body -->
                                         <div id="collapse3" class="collapse" role="tabpanel" aria-labelledby="heading3" data-parent="#accordionEx7">
                                             <div class="card-body mb-1 rgba-grey-light white-text">
-                                                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
-                                                    doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore
-                                                    veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo
-                                                    enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit,
-                                                    sed quia consequuntur magni dolores eos qui ratione voluptatem sequi
-                                                    nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit
-                                                    amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora
-                                                    incidunt ut labore et dolore magnam aliquam quaerat voluptatem.
-                                                </p>
+                                                {{#each email}}
+                                                    {{#if hasQuestion}}
+                                                        {{question}}
+                                                    {{/if}}
+                                                {{/each}}
                                             </div>
                                         </div>
                                     </div>
