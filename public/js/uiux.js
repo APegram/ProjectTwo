@@ -154,60 +154,77 @@ Grey
  */
 
 $(document).ready(function() {
+
+  // FIXME: Emoji Picker Initialization
+  /*
+  $(function() {
+    // Initializes and creates emoji set from sprite sheet
+    window.emojiPicker = new EmojiPicker({
+      emojiable_selector: '[data-emojiable=true]',
+      assetsPath: '../img/emojis/img',
+      popupButtonClasses: 'fal fa-grin-beam'
+    });
+    // Finds all elements with `emojiable_selector` and converts them to rich emoji input fields
+    // You may want to delay this step if you have dynamically created input fields that appear later in the loading process
+    // It can be called as many times as necessary; previously converted input fields will not be converted again
+    window.emojiPicker.discover();
+  });
+  */
+
   $(".countdown.multisize").circularCountdown({
-    startDate:"2018/07/20 21:00:00",
-    endDate:"2018/07/20 23:00:00",
+    startDate:"2018/07/21 10:00:00",
+    endDate:"2018/07/21 10:20:00",
     timeZone:-5,	//Time zone of New York. Find timezone of your location and write here.
-    
+
       showDay:false,
       showHour:false,
       showMinute:true,
       showSecond:true,
     //Margin between circles
     margin:7,
-    
+
     //Diameters
     dayDiameter:72,
     hourDiameter:72,
     minuteDiameter:72,
     secondDiameter:52,
-    
+
     //Circle BG width
     dayBgWidth:5,
     hourBgWidth:5,
     minuteBgWidth:-200,
     secondBgWidth:2,
-    
+
     //Circle width
     dayCircleWidth:5,
     hourCircleWidth:5,
     minuteCircleWidth:2,
     secondCircleWidth:2,
-    
+
     //Circle color
     dayCircleColor:"#91304e",
     hourCircleColor:"#91304e",
     minuteCircleColor:"#ffffff",
     secondCircleColor:"#ffffff",
-    
+
     //Counter font size
     dayCounterFontSize:24,
     hourCounterFontSize:24,
     minuteCounterFontSize:24,
     secondCounterFontSize:16,
-    
+
     //Counter font color
     dayCounterFontColor:"#91304e",
     hourCounterFontColor:"#91304e",
     minuteCounterFontColor:"#ffffff",
     secondCounterFontColor:"#ffffff",
-    
+
     //Texts
     dayText:"days",
     hourText:"hours",
     minuteText:"minutes",
     secondText:"seconds",
-    
+
     //Texts top margin
     dayTextMarginTop:1,
     hourTextMarginTop:1,
