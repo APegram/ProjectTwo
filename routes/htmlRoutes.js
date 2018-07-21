@@ -1,4 +1,5 @@
 var db = require("../models");
+var path = require("path");
 
 module.exports = function(app) {
   // Load index page
@@ -15,8 +16,15 @@ module.exports = function(app) {
     });
   });
 
-  // Render 404 page for any unmatched routes
-  app.get("*", function(req, res) {
-    res.render("404");
+  
+  app.get("/PTA", function(req, res){
+    console.log(req);
+    res.sendFile(path.join(__dirname, "/../public/instructor.html"));
   });
+
+
+  // Render 404 page for any unmatched routes **Needs to be at the end of all the routes**
+  // app.get("*", function(req, res) {
+  //   res.render("404");
+  // });
 };

@@ -44,17 +44,17 @@ $("#reg-to-login").on("click", function (event) {
                 $.ajax("/api/users", {
                     type: "POST",
                     data: newUser,
-                    success: function(data) {
+                    success: function (data) {
                         console.log(newUser);
                         console.log(data);
-                        if (data[1] === false){
+                        if (data[1] === false) {
                             //email in use, please choose another.
                             return $("#Modal-emailTaken").modal("toggle");
                         }
 
                         console.log("success");
                         $("#bch-createAccount").addClass("bch-hide");
-                        $("#bch-loginMenu").removeClass("bch-hide");                        
+                        $("#bch-loginMenu").removeClass("bch-hide");
                     }
                 })
 
@@ -81,7 +81,7 @@ $("#re-register").on("click", function () {
     $("#v-userPW").val("");
 })
 
-$("#re-type-email").on("click", function(){
+$("#re-type-email").on("click", function () {
     $("#Modal-emailTaken").modal("toggle")
     $("#create-userEmail").val("");
     $("#create-userPW").val("");
@@ -102,36 +102,40 @@ $(".mainEscape").on("click", function () {
     $("bch-mainMenu").removeClass("bch-hide");
 })
 
-$("#login-load").on("click", function(event){
-event.preventDefault();
-var pass = $("#login-userPassword").val();
-var user = $("#login-userEmail").val();
-console.log("Test")
+$("#login-load").on("click", function (event) {
+            event.preventDefault();
+            var pass = $("#login-userPassword").val();
+            var user = $("#login-userEmail").val();
+            console.log("Test")
 
-if (!pass || !user){
-    $("#Modal-blankField").modal("toggle");
-} else {
-    console.log("Creating credentials...")
-    var userLogin = {
-        email: user,
-        password: pass
-    }
-    console.log(userLogin);
+            if (!pass || !user) {
+                $("#Modal-blankField").modal("toggle");
+            } else {
+                console.log("Creating credentials...")
+                var userLogin = {
+                    email: user,
+                    password: pass
+                }
 
-    //Check database for credentials.
+                //Check database for credentials.
+                $.ajax("/api/userVerify", {
+                    type: "POST",
+                    data: userLogin
+                }).then(function (data) {
+                    console.log(data);
+                    var name = data[0];
+                    var role = data[1];
+                    if (data !== "failed") {
+                        if (data[1] === "admin"){
+                            return window.location.replace("/PTA")
+                        } return window.location.replace("/STU")
+                    }
+                })
+            }
+        })
 
-    $.ajax("/api/userVerify", {
-        type: "POST",
-        data: userLogin
-    }).then(function(data){
-        console.log(data);
-        //direct to html path.
-    })
-}
 
-})
-
-$("#failed-login").on("click", function () {
-    $("#bch-loginMenu").addClass("bch-hide");
-    $("#bch-createAccount").removeClass("bch-hide");
-});
+        $("#failed-login").on("click", function () {
+            $("#bch-loginMenu").addClass("bch-hide");
+            $("#bch-createAccount").removeClass("bch-hide");
+        });
