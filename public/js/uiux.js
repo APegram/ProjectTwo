@@ -152,3 +152,66 @@ Indigo
 Light Blue
 Grey
  */
+
+$(document).ready(function() {
+  $(".countdown.multisize").circularCountdown({
+    startDate:"2018/07/20 21:00:00",
+    endDate:"2018/07/20 23:00:00",
+    timeZone:-5,	//Time zone of New York. Find timezone of your location and write here.
+    
+      showDay:false,
+      showHour:false,
+      showMinute:true,
+      showSecond:true,
+    //Margin between circles
+    margin:7,
+    
+    //Diameters
+    dayDiameter:72,
+    hourDiameter:72,
+    minuteDiameter:72,
+    secondDiameter:52,
+    
+    //Circle BG width
+    dayBgWidth:5,
+    hourBgWidth:5,
+    minuteBgWidth:-200,
+    secondBgWidth:2,
+    
+    //Circle width
+    dayCircleWidth:5,
+    hourCircleWidth:5,
+    minuteCircleWidth:2,
+    secondCircleWidth:2,
+    
+    //Circle color
+    dayCircleColor:"#91304e",
+    hourCircleColor:"#91304e",
+    minuteCircleColor:"#ffffff",
+    secondCircleColor:"#ffffff",
+    
+    //Counter font size
+    dayCounterFontSize:24,
+    hourCounterFontSize:24,
+    minuteCounterFontSize:24,
+    secondCounterFontSize:16,
+    
+    //Counter font color
+    dayCounterFontColor:"#91304e",
+    hourCounterFontColor:"#91304e",
+    minuteCounterFontColor:"#ffffff",
+    secondCounterFontColor:"#ffffff",
+    
+    //Texts
+    dayText:"days",
+    hourText:"hours",
+    minuteText:"minutes",
+    secondText:"seconds",
+    
+    //Texts top margin
+    dayTextMarginTop:1,
+    hourTextMarginTop:1,
+    minuteTextMarginTop:1,
+    secondTextMarginTop:2
+  });
+});

@@ -14,6 +14,9 @@
     <link href="./css/mdb.css" rel="stylesheet">
     <!-- Your custom styles (optional) -->
     <link href="./css/style.min.css" rel="stylesheet">
+    <!-- Timer -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,800,300,600' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="./css/circular-countdown.css">
 </head>
 
 <body class="hidden-sn mdb-skin elegant-color-dark">
@@ -79,29 +82,33 @@
                     <ul class="collapsible collapsible-accordion">
                         <li>
                             <a class="collapsible-header waves-effect arrow-r">
-                                <i class="fa fa-chevron-right"></i>Class
+                                <i class="fal fa-users"></i> Class
                                 <i class="fa fa-angle-down rotate-icon"></i>
                             </a>
                             <div class="collapsible-body">
                                 <ul>
                                     <li>
-                                        <a href="#" class="waves-effect">View Students</a>
+                                        <a href="#" class="waves-effect">
+                                            <i class="fal fa-user-graduate"></i> View Students
+                                        </a>
                                     </li>
                                     <li>
-                                        <a href="#" class="waves-effect">Send Notification</a>
+                                        <a href="#" class="waves-effect">
+                                            <i class="fal fa-bell"></i> Send Notification</a>
                                     </li>
                                 </ul>
                             </div>
                         </li>
                         <li>
                             <a class="collapsible-header waves-effect arrow-r">
-                                <i class="fa fa-hand-pointer-o"></i> Instruction
+                                <i class="fal fa-chalkboard"></i> Instruction
                                 <i class="fa fa-angle-down rotate-icon"></i>
                             </a>
                             <div class="collapsible-body">
                                 <ul>
                                     <li>
-                                        <a href="#" class="waves-effect">For bloggers</a>
+                                        <a href="#" class="waves-effect">
+                                            <i class="fal fa-space-shuttle"></i> Launch Exercise</a>
                                     </li>
                                     <li>
                                         <a href="#" class="waves-effect">For authors</a>
@@ -217,16 +224,16 @@
 
 
             <!-- Section: Contact v.3 -->
-            <section class="contact-section my-5">
+            <section class="my-5">
 
                 <!-- Form with header -->
-                <div class="card sunny-morning-gradient" style="z-index: 2;">
+                <div class="card sunny-morning-gradient">
 
                     <!-- Grid row -->
                     <div class="row">
 
                         <!-- Grid column -->
-                        <div class="col-lg-8" style="z-index: 2;">
+                        <div class="col-lg-8">
 
                             <div class="card-body form">
                                 <article id="markdown" class="markdown-body">
@@ -271,167 +278,138 @@
                                 <button class="btn btn-primary" id="progressShow" type="button">
                                     Open student progress panel
                                 </button>
-
                             </div>
 
                         </div>
                         <!-- Grid column -->
+                        <div class="col-lg-4">
+                            <div class="row">
+                                <div class="col offset-6">
 
-                        <!-- Grid column -->
-                        <div class="col-lg-4 collapse animated slideInLeft" style="z-index: 1;" id="progressPopOut">
-                            <div class="row deep-blue-gradient d-flex justify-content-center">
+                                    <div id="multisize">
+                                        <div class="wrapper">
+                                            <!-- Countdown -->
+                                            <div class="countdown multisize"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row d-flex justify-content-center">
 
                                 <!-- Grid column -->
                                 <!-- <div class="col-md-10 col-xl-6 py-5"> -->
+                                <div class="col collapse animated slideinLeft" id="progressPopOut">
+                                    <!--Accordion wrapper-->
+                                    <div class="accordion accordion-2" id="accordionEx7" role="tablist" aria-multiselectable="true">
 
-                                <!--Accordion wrapper-->
-                                <div class="accordion accordion-2" id="accordionEx7" role="tablist" aria-multiselectable="true">
+                                        <!-- Accordion card -->
+                                        <div class="card tempting-azure-gradient">
 
-                                    <!-- Accordion card -->
-                                    <div class="card">
+                                            <!-- Card header -->
+                                            <div class="card-header rgba-stylish-strong z-depth-1 mb-1" role="tab" id="heading1">
+                                                <a data-toggle="collapse" data-parent="#accordionEx7" href="#collapse1" aria-expanded="true" aria-controls="collapse1">
+                                                    <h5 class="mb-0 white-text text-uppercase font-thin">
+                                                        Completed
+                                                        <i class="fa fa-angle-down rotate-icon"></i>
+                                                    </h5>
+                                                </a>
+                                            </div>
 
-                                        <!-- Card header -->
-                                        <div class="card-header rgba-stylish-strong z-depth-1 mb-1" role="tab" id="heading1">
-                                            <a data-toggle="collapse" data-parent="#accordionEx7" href="#collapse1" aria-expanded="true" aria-controls="collapse1">
-                                                <h5 class="mb-0 white-text text-uppercase font-thin">
-                                                    Completed
-                                                    <i class="fa fa-angle-down rotate-icon"></i>
-                                                </h5>
-                                            </a>
-                                        </div>
-
-                                        <!-- Card body -->
-                                        <div id="collapse1" class="collapse show" role="tabpanel" aria-labelledby="heading1" data-parent="#accordionEx7">
-                                            <div class="card-body mb-1 rgba-grey-light white-text">
-                                                <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
-                                                    richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard
-                                                    dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf
-                                                    moon tempor, sunt aliqua put a bird on it squid single-origin coffee
-                                                    nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer
-                                                    labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur
-                                                    butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim
-                                                    aesthetic synth nesciunt you probably haven't heard of them accusamus
-                                                    labore sustainable.</p>
+                                            <!-- Card body -->
+                                            <div id="collapse1" class="collapse show" role="tabpanel" aria-labelledby="heading1" data-parent="#accordionEx7">
+                                                <div class="card-body mb-1 rgba-grey-light white-text">
+                                                    <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus
+                                                        terry richardson ad squid. 3 wolf moon officia aute, non cupidatat
+                                                        skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
+                                                        Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin
+                                                        coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica,
+                                                        craft beer labore wes anderson cred nesciunt sapiente ea proident.
+                                                        Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer
+                                                        farm-to-table, raw denim aesthetic synth nesciunt you probably haven't
+                                                        heard of them accusamus labore sustainable.</p>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <!-- Accordion card -->
+                                        <!-- Accordion card -->
 
-                                    <!-- Accordion card -->
-                                    <div class="card">
 
-                                        <!-- Card header -->
-                                        <div class="card-header rgba-stylish-strong z-depth-1 mb-1" role="tab" id="heading2">
-                                            <a class="collapsed" data-toggle="collapse" data-parent="#accordionEx7" href="#collapse2" aria-expanded="false" aria-controls="collapse2">
-                                                <h5 class="mb-0 white-text text-uppercase font-thin">
-                                                    Issues
-                                                    <i class="fa fa-angle-down rotate-icon"></i>
-                                                </h5>
-                                            </a>
-                                        </div>
+                                        <!-- Accordion card -->
+                                        <div class="card young-passion-gradient">
 
-                                        <!-- Card body -->
-                                        <div id="collapse2" class="collapse" role="tabpanel" aria-labelledby="heading2" data-parent="#accordionEx7">
-                                            <div class="card-body mb-1 rgba-grey-light white-text">
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                                                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                                                    consequat. Duis aute irure dolor in reprehenderit in voluptate velit
-                                                    esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                                                    cupidatat non proident, sunt in culpa qui officia deserunt mollit anim
-                                                    id est laborum.</p>
+                                            <!-- Card header -->
+                                            <div class="card-header rgba-stylish-strong z-depth-1 mb-1" role="tab" id="heading3">
+                                                <a class="collapsed" data-toggle="collapse" data-parent="#accordionEx7" href="#collapse3" aria-expanded="false" aria-controls="collapse3">
+                                                    <h5 class="mb-0 white-text text-uppercase font-thin">
+                                                        Questions
+                                                        <i class="fa fa-angle-down rotate-icon"></i>
+                                                    </h5>
+                                                </a>
+                                            </div>
+
+                                            <!-- Card body -->
+                                            <div id="collapse3" class="collapse" role="tabpanel" aria-labelledby="heading3" data-parent="#accordionEx7">
+                                                <div class="card-body mb-1 rgba-grey-light white-text">
+                                                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
+                                                        doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo
+                                                        inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+                                                        Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit
+                                                        aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem
+                                                        sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia
+                                                        dolor sit amet, consectetur, adipisci velit, sed quia non numquam
+                                                        eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat
+                                                        voluptatem.</p>
+                                                </div>
                                             </div>
                                         </div>
+                                        <!-- Accordion card -->
                                     </div>
-                                    <!-- Accordion card -->
-
-                                    <!-- Accordion card -->
-                                    <div class="card">
-
-                                        <!-- Card header -->
-                                        <div class="card-header rgba-stylish-strong z-depth-1 mb-1" role="tab" id="heading3">
-                                            <a class="collapsed" data-toggle="collapse" data-parent="#accordionEx7" href="#collapse3" aria-expanded="false" aria-controls="collapse3">
-                                                <h5 class="mb-0 white-text text-uppercase font-thin">
-                                                    Questions
-                                                    <i class="fa fa-angle-down rotate-icon"></i>
-                                                </h5>
-                                            </a>
-                                        </div>
-
-                                        <!-- Card body -->
-                                        <div id="collapse3" class="collapse" role="tabpanel" aria-labelledby="heading3" data-parent="#accordionEx7">
-                                            <div class="card-body mb-1 rgba-grey-light white-text">
-                                                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
-                                                    doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore
-                                                    veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo
-                                                    enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit,
-                                                    sed quia consequuntur magni dolores eos qui ratione voluptatem sequi
-                                                    nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit
-                                                    amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora
-                                                    incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- Accordion card -->
+                                    <!--/.Accordion wrapper-->
                                 </div>
-                                <!--/.Accordion wrapper-->
-
                                 <!-- </div> -->
                                 <!-- Grid column -->
 
                             </div>
-                            <!-- <div class="card-body contact text-center h-100 white-text">
-        
-                                    <h3 class="my-4 pb-2">Contact information</h3>
-                                    <ul class="text-lg-left list-unstyled ml-4">
-                                        <li>
-                                            <p>
-                                                <i class="fa fa-map-marker pr-2"></i>New York, 94126, USA</p>
-                                        </li>
-                                        <li>
-                                            <p>
-                                                <i class="fa fa-phone pr-2"></i>+ 01 234 567 89</p>
-                                        </li>
-                                        <li>
-                                            <p>
-                                                <i class="fa fa-envelope pr-2"></i>contact@example.com</p>
-                                        </li>
-                                    </ul>
-                                    <hr class="hr-light my-4">
-                                    <ul class="list-inline text-center list-unstyled">
-                                        <li class="list-inline-item">
-                                            <a class="p-2 fa-lg tw-ic">
-                                                <i class="fa fa-twitter"></i>
-                                            </a>
-                                        </li>
-                                        <li class="list-inline-item">
-                                            <a class="p-2 fa-lg li-ic">
-                                                <i class="fa fa-linkedin"> </i>
-                                            </a>
-                                        </li>
-                                        <li class="list-inline-item">
-                                            <a class="p-2 fa-lg ins-ic">
-                                                <i class="fa fa-instagram"> </i>
-                                            </a>
-                                        </li>
-                                    </ul>
-        
-                                </div> -->
-
                         </div>
                         <!-- Grid column -->
-
                     </div>
                     <!-- Grid row -->
-
                 </div>
                 <!-- Form with header -->
-
             </section>
             <!-- Section: Contact v.3 -->
-
-
         </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card card-image" style="background-image: url(https://mdbootstrap.com/img/Photos/Others/gradient1.jpg);">
+                        <div class="text-white text-center px-4 my-5">
+                                <h1 class="card-title pt-3 mb-5 font-bold">
+                                    <strong>What a beautiful chat box</strong>
+                                </h1>
+                        </div>
+                        <div class="container">
+                            <div class="elegant-color-dark text-white py-5 px-4 my-5">
+                                <div class="chip chip-md peach-gradient darken-2 white-text">
+                                    <img src="./img/images/blaise-hs-dt.png" alt="Contact Person"> Blaze
+                                </div>
+                                <span>blah-de blah-de blah</span>
+                                <br>
+                                <div class="chip chip-md aqua-gradient darken-2 white-text">
+                                    <img src="./img/images/stewart-hs-dt.png" alt="Contact Person"> Stewart
+                                </div>
+                                <span>What?</span>
+                                <br>
+                                <div class="chip chip-md morpheus-den-gradient darken-2 white-text">
+                                    <img src="./img/images/stephen-hs-dt.jpg" alt="Contact Person"> Stephen
+                                </div>
+                                <span>... Are you okay, man?</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
     </main>
     <!--Main Layout-->
 
@@ -748,27 +726,27 @@
                                                 <hr>
                                                 <!-- Social Icons -->
                                                 <ul class="list-inline list-unstyled">
-                                                        <li class="list-inline-item">
-                                                            <a class="p-2 fa-lg fb-ic">
-                                                                <i class="fab fa-facebook"></i>
-                                                            </a>
-                                                        </li>
-                                                        <li class="list-inline-item">
-                                                            <a class="p-2 fa-lg git-ic">
-                                                                <i class="fab fa-github"> </i>
-                                                            </a>
-                                                        </li>
-                                                        <li class="list-inline-item">
-                                                            <a class="p-2 fa-lg li-ic">
-                                                                <i class="fab fa-linkedin"> </i>
-                                                            </a>
-                                                        </li>
-                                                        <li class="list-inline-item">
-                                                            <a class="p-2 fa-lg tw-ic">
-                                                                <i class="fab fa-twitter"> </i>
-                                                            </a>
-                                                        </li>
-                                                    </ul>
+                                                    <li class="list-inline-item">
+                                                        <a class="p-2 fa-lg fb-ic">
+                                                            <i class="fab fa-facebook"></i>
+                                                        </a>
+                                                    </li>
+                                                    <li class="list-inline-item">
+                                                        <a class="p-2 fa-lg git-ic">
+                                                            <i class="fab fa-github"> </i>
+                                                        </a>
+                                                    </li>
+                                                    <li class="list-inline-item">
+                                                        <a class="p-2 fa-lg li-ic">
+                                                            <i class="fab fa-linkedin"> </i>
+                                                        </a>
+                                                    </li>
+                                                    <li class="list-inline-item">
+                                                        <a class="p-2 fa-lg tw-ic">
+                                                            <i class="fab fa-twitter"> </i>
+                                                        </a>
+                                                    </li>
+                                                </ul>
                                                 <!-- Triggering button -->
                                                 <a class="rotate-btn grey-text" data-card="card-2">
                                                     <i class="fa fa-repeat grey-text"></i> Click here to rotate back</a>
@@ -822,27 +800,27 @@
                                                 <hr>
                                                 <!-- Social Icons -->
                                                 <ul class="list-inline list-unstyled">
-                                                        <li class="list-inline-item">
-                                                            <a class="p-2 fa-lg fb-ic">
-                                                                <i class="fab fa-facebook"></i>
-                                                            </a>
-                                                        </li>
-                                                        <li class="list-inline-item">
-                                                            <a class="p-2 fa-lg git-ic">
-                                                                <i class="fab fa-github"> </i>
-                                                            </a>
-                                                        </li>
-                                                        <li class="list-inline-item">
-                                                            <a class="p-2 fa-lg li-ic">
-                                                                <i class="fab fa-linkedin"> </i>
-                                                            </a>
-                                                        </li>
-                                                        <li class="list-inline-item">
-                                                            <a class="p-2 fa-lg tw-ic">
-                                                                <i class="fab fa-twitter"> </i>
-                                                            </a>
-                                                        </li>
-                                                    </ul>
+                                                    <li class="list-inline-item">
+                                                        <a class="p-2 fa-lg fb-ic">
+                                                            <i class="fab fa-facebook"></i>
+                                                        </a>
+                                                    </li>
+                                                    <li class="list-inline-item">
+                                                        <a class="p-2 fa-lg git-ic">
+                                                            <i class="fab fa-github"> </i>
+                                                        </a>
+                                                    </li>
+                                                    <li class="list-inline-item">
+                                                        <a class="p-2 fa-lg li-ic">
+                                                            <i class="fab fa-linkedin"> </i>
+                                                        </a>
+                                                    </li>
+                                                    <li class="list-inline-item">
+                                                        <a class="p-2 fa-lg tw-ic">
+                                                            <i class="fab fa-twitter"> </i>
+                                                        </a>
+                                                    </li>
+                                                </ul>
                                                 <!-- Triggering button -->
                                                 <a class="rotate-btn grey-text" data-card="card-3">
                                                     <i class="fa fa-repeat grey-text"></i> Click here to rotate back</a>
@@ -903,27 +881,27 @@
                                                 <hr>
                                                 <!-- Social Icons -->
                                                 <ul class="list-inline list-unstyled">
-                                                        <li class="list-inline-item">
-                                                            <a class="p-2 fa-lg fb-ic">
-                                                                <i class="fab fa-facebook"></i>
-                                                            </a>
-                                                        </li>
-                                                        <li class="list-inline-item">
-                                                            <a class="p-2 fa-lg git-ic">
-                                                                <i class="fab fa-github"> </i>
-                                                            </a>
-                                                        </li>
-                                                        <li class="list-inline-item">
-                                                            <a class="p-2 fa-lg li-ic">
-                                                                <i class="fab fa-linkedin"> </i>
-                                                            </a>
-                                                        </li>
-                                                        <li class="list-inline-item">
-                                                            <a class="p-2 fa-lg tw-ic">
-                                                                <i class="fab fa-twitter"> </i>
-                                                            </a>
-                                                        </li>
-                                                    </ul>
+                                                    <li class="list-inline-item">
+                                                        <a class="p-2 fa-lg fb-ic">
+                                                            <i class="fab fa-facebook"></i>
+                                                        </a>
+                                                    </li>
+                                                    <li class="list-inline-item">
+                                                        <a class="p-2 fa-lg git-ic">
+                                                            <i class="fab fa-github"> </i>
+                                                        </a>
+                                                    </li>
+                                                    <li class="list-inline-item">
+                                                        <a class="p-2 fa-lg li-ic">
+                                                            <i class="fab fa-linkedin"> </i>
+                                                        </a>
+                                                    </li>
+                                                    <li class="list-inline-item">
+                                                        <a class="p-2 fa-lg tw-ic">
+                                                            <i class="fab fa-twitter"> </i>
+                                                        </a>
+                                                    </li>
+                                                </ul>
                                                 <!-- Triggering button -->
                                                 <a class="rotate-btn grey-text" data-card="card-4">
                                                     <i class="fa fa-repeat grey-text"></i> Click here to rotate back</a>
@@ -977,28 +955,28 @@
                                                 <hr>
                                                 <!-- Social Icons -->
                                                 <ul class="list-inline list-unstyled">
-                                                        <li class="list-inline-item">
-                                                            <a class="p-2 fa-lg fb-ic" href="https://www.facebook.com/shodgesio" target="_blank">
-                                                                <i class="fab fa-facebook"></i>
-                                                            </a>
-                                                        </li>
-                                                        <li class="list-inline-item">
-                                                            <a class="p-2 fa-lg git-ic" href="https://github.com/shodgesio" target="_blank">
-                                                                <i class="fab fa-github"> </i>
-                                                            </a>
-                                                        </li>
-                                                        <li class="list-inline-item">
-                                                            <a class="p-2 fa-lg li-ic" href="https://www.linkedin.com/in/shodgesio/" target="_blank">
-                                                                <i class="fab fa-linkedin"> </i>
-                                                            </a>
-                                                        </li>
-                                                        <li class="list-inline-item">
-                                                            <a class="p-2 fa-lg tw-ic" href="https://twitter.com/shodgesio" target="_blank">
-                                                                <i class="fab fa-twitter"> </i>
-                                                            </a>
-                                                        </li>
-                                                    </ul>
-                                                    <!-- Triggering button -->
+                                                    <li class="list-inline-item">
+                                                        <a class="p-2 fa-lg fb-ic" href="https://www.facebook.com/shodgesio" target="_blank">
+                                                            <i class="fab fa-facebook"></i>
+                                                        </a>
+                                                    </li>
+                                                    <li class="list-inline-item">
+                                                        <a class="p-2 fa-lg git-ic" href="https://github.com/shodgesio" target="_blank">
+                                                            <i class="fab fa-github"> </i>
+                                                        </a>
+                                                    </li>
+                                                    <li class="list-inline-item">
+                                                        <a class="p-2 fa-lg li-ic" href="https://www.linkedin.com/in/shodgesio/" target="_blank">
+                                                            <i class="fab fa-linkedin"> </i>
+                                                        </a>
+                                                    </li>
+                                                    <li class="list-inline-item">
+                                                        <a class="p-2 fa-lg tw-ic" href="https://twitter.com/shodgesio" target="_blank">
+                                                            <i class="fab fa-twitter"> </i>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                                <!-- Triggering button -->
                                                 <a class="rotate-btn grey-text" data-card="card-5">
                                                     <i class="fa fa-repeat grey-text"></i> Click here to rotate back</a>
                                             </div>
@@ -1060,10 +1038,6 @@
                     <h6 class="text-uppercase mb-4 font-weight-bold">Meet the Team</h6>
                     <p>
                         <a href="#!" data-toggle="modal" data-target="#exampleModal">The Team</a>
-                        <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary" >
-            Launch demo modal
-        </button>
                     </p>
                 </div>
                 <!-- Grid column -->
@@ -1177,6 +1151,8 @@
     <script type="text/javascript" src="./js/bootstrap.min.js"></script>
     <!-- MDB core JavaScript -->
     <script type="text/javascript" src="./js/mdb.min.js"></script>
+    <!-- Timer -->
+    <script type="text/javascript" src="./js/jquery.circular-countdown.js"></script>
     <script type="text/javascript" src="./js/uiux.js"></script>
 </body>
 
