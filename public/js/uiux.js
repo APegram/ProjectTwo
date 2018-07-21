@@ -185,7 +185,7 @@ $(document).ready(function() {
 
   $(".countdown.multisize").circularCountdown({
     startDate:"2018/07/21 10:00:00",
-    endDate:"2018/07/21 11:30:00",
+    endDate:"2018/07/21 16:30:00",
     timeZone:-5,	//Time zone of New York. Find timezone of your location and write here.
 
       showDay:false,
