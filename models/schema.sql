@@ -47,6 +47,13 @@ CREATE TABLE comments (
     PRIMARY KEY (id)
 )
 
+CREATE TABLE moduleIndex (
+    id INT NOT NULL AUTO_INCREMENT,
+    moduleName VARCHAR(80),
+    moduleTableName VARCHAR(40),
+    moduleJSName VARCHAR(40)
+)
+
 
 -- Module 15
 CREATE TABLE exerciseOne(
