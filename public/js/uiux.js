@@ -9,6 +9,16 @@ $("#progressShow").click(function() {
     .toggleClass("collapse")
     .addClass("slideInRight");
 });
+$("#in-class-toggle").click(function() {
+  $("#in-class")
+    .toggleClass("collapse")
+    .addClass("slideInRight");
+});
+$("#in-structors-toggle").click(function() {
+  $("#in-structors")
+    .toggleClass("collapse")
+    .addClass("slideInRight");
+});
 
 $("#themeWhite").click(function() {
   $("body")
@@ -173,7 +183,7 @@ $(document).ready(function() {
 
   $(".countdown.multisize").circularCountdown({
     startDate:"2018/07/21 10:00:00",
-    endDate:"2018/07/21 10:20:00",
+    endDate:"2018/07/21 11:30:00",
     timeZone:-5,	//Time zone of New York. Find timezone of your location and write here.
 
       showDay:false,

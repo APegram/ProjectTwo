@@ -194,6 +194,22 @@
             <ul class="nav navbar-nav nav-flex-icons ml-auto">
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-comments"></i>
+                        <span class="clearfix d-none d-sm-inline-block">Chat</span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="#" id="in-class-toggle">
+                            <i class="fas fa-quote-left"></i>
+                            <span class="clearfix d-none d-sm-inline-block">#in-class</span>
+                        </a>
+                        <a class="dropdown-item" href="#" id="in-structors-toggle">
+                            <i class="fas fa-quote-right"></i>
+                            <span class="clearfix d-none d-sm-inline-block">#in-structors</span>
+                        </a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="far fa-user-astronaut"></i>
                         <span class="clearfix d-none d-sm-inline-block">Account</span>
                     </a>
@@ -220,238 +236,270 @@
     <!--Main Layout-->
     <main>
         <div class="container">
-        <!-- Section: Contact v.3 -->
-        <section class="my-5">
-            <!-- Form with header -->
-            <div class="card sunny-morning-gradient">
-                <!-- Grid row -->
-                <div class="row">
-                    <!-- Grid column -->
-                    <div class="col-lg-8">
-                        <div class="card-body form">
-                            <article id="markdown" class="markdown-body">
-                                <h2 id="students-do-first-stand-up">Students Do: First Stand-up</h2>
-                                <ul>
-                                    <li>In this activity you will take part in your first stand-up with your group mates. Regular
-                                        stand-ups help ensure everyone is on the same page with what they are working on
-                                        and everyone gets help they might need.</li>
-                                </ul>
-                                <h2 id="instructions">Instructions</h2>
-                                <ul>
-                                    <li>
-                                        <p>Before your first stand-up, each member of the team should go through the "To Do"
-                                            column of the project board and self-assign at least one issue.</p>
-                                        <ul>
-                                            <li>To do this, click on the issue and on the right choose "self-assign".</li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <p>Everyone should have a clear idea of what they think they can accomplish today. Now
-                                            it's time for your first stand-up!</p>
-                                    </li>
-                                    <li>
-                                        <p>Stand if you are able - yep, stand-ups take place standing; this helps to ensure
-                                            that the meetings are short and to the point.</p>
-                                    </li>
-                                    <li>
-                                        <p>Each member of the team should say:</p>
-                                        <ul>
-                                            <li>What they did yesterday</li>
-                                            <li>What they plan to do today</li>
-                                            <li>What, if anything, is blocking their progress.</li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <p>Stand-ups should be held
-                                            <strong>daily</strong> from this point forward - yes even days that you don't have class
-                                            (use Slack or Google Hangouts).</p>
-                                    </li>
-                                </ul>
-                            </article>
-                            <button class="btn btn-primary" id="progressShow" type="button">
-                                Open student progress panel
-                            </button>
+            <!-- Section: Contact v.3 -->
+            <section class="my-5">
+                <!-- Form with header -->
+                <div class="card sunny-morning-gradient">
+                    <!-- Grid row -->
+                    <div class="row">
+                        <!-- Grid column -->
+                        <div class="col-lg-8">
+                            <div class="card-body form">
+                                <article id="markdown" class="markdown-body">
+                                    <h2 id="students-do-first-stand-up">Students Do: First Stand-up</h2>
+                                    <ul>
+                                        <li>In this activity you will take part in your first stand-up with your group mates.
+                                            Regular stand-ups help ensure everyone is on the same page with what they are
+                                            working on and everyone gets help they might need.</li>
+                                    </ul>
+                                    <h2 id="instructions">Instructions</h2>
+                                    <ul>
+                                        <li>
+                                            <p>Before your first stand-up, each member of the team should go through the "To
+                                                Do" column of the project board and self-assign at least one issue.</p>
+                                            <ul>
+                                                <li>To do this, click on the issue and on the right choose "self-assign".</li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <p>Everyone should have a clear idea of what they think they can accomplish today.
+                                                Now it's time for your first stand-up!</p>
+                                        </li>
+                                        <li>
+                                            <p>Stand if you are able - yep, stand-ups take place standing; this helps to ensure
+                                                that the meetings are short and to the point.</p>
+                                        </li>
+                                        <li>
+                                            <p>Each member of the team should say:</p>
+                                            <ul>
+                                                <li>What they did yesterday</li>
+                                                <li>What they plan to do today</li>
+                                                <li>What, if anything, is blocking their progress.</li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <p>Stand-ups should be held
+                                                <strong>daily</strong> from this point forward - yes even days that you don't have
+                                                class (use Slack or Google Hangouts).</p>
+                                        </li>
+                                    </ul>
+                                </article>
+                                <button class="btn btn-primary" id="progressShow" type="button">
+                                    Open student progress panel
+                                </button>
+                            </div>
                         </div>
-                    </div>
-                    <!-- Grid column -->
-                    <div class="col-lg-4">
-                        <div class="row">
-                            <div class="col offset-6" style="overflow: hidden;">
-                                <div id="multisize">
-                                    <div class="wrapper">
-                                        <!-- Countdown -->
-                                        <div class="countdown multisize"></div>
+                        <!-- Grid column -->
+                        <div class="col-lg-4">
+                            <div class="row">
+                                <div class="col offset-6" style="overflow: hidden;">
+                                    <div id="multisize">
+                                        <div class="wrapper">
+                                            <!-- Countdown -->
+                                            <div class="countdown multisize"></div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="row d-flex justify-content-center">
-                            <!-- Grid column -->
-                            <!-- <div class="col-md-10 col-xl-6 py-5"> -->
-                            <div class="col collapse animated slideinLeft" id="progressPopOut">
-                                <!--Accordion wrapper-->
-                                <div class="accordion accordion-2" id="accordionEx7" role="tablist" aria-multiselectable="true">
-                                    <!-- Accordion card -->
-                                    <div class="card tempting-azure-gradient">
-                                        <!-- Card header -->
-                                        <div class="card-header rgba-stylish-strong z-depth-1 mb-1" role="tab" id="heading1">
-                                            <a data-toggle="collapse" data-parent="#accordionEx7" href="#collapse1" aria-expanded="true" aria-controls="collapse1">
-                                                <h5 class="mb-0 white-text text-uppercase font-thin">
-                                                    Completed
-                                                    <i class="fa fa-angle-down rotate-icon"></i>
-                                                </h5>
-                                            </a>
+                            <div class="row d-flex justify-content-center">
+                                <!-- Grid column -->
+                                <!-- <div class="col-md-10 col-xl-6 py-5"> -->
+                                <div class="col collapse animated slideinLeft" id="progressPopOut">
+                                    <!--Accordion wrapper-->
+                                    <div class="accordion accordion-2" id="accordionEx7" role="tablist" aria-multiselectable="true">
+                                        <!-- Accordion card -->
+                                        <div class="card tempting-azure-gradient">
+                                            <!-- Card header -->
+                                            <div class="card-header rgba-stylish-strong z-depth-1 mb-1" role="tab" id="heading1">
+                                                <a data-toggle="collapse" data-parent="#accordionEx7" href="#collapse1" aria-expanded="true" aria-controls="collapse1">
+                                                    <h5 class="mb-0 white-text text-uppercase font-thin">
+                                                        Completed
+                                                        <i class="fa fa-angle-down rotate-icon"></i>
+                                                    </h5>
+                                                </a>
+                                            </div>
+                                            <!-- Card body -->
+                                            <div id="collapse1" class="collapse show" role="tabpanel" aria-labelledby="heading1" data-parent="#accordionEx7">
+                                                <div class="card-body mb-1 rgba-grey-light white-text">
+                                                    <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus
+                                                        terry richardson ad squid. 3 wolf moon officia aute, non cupidatat
+                                                        skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
+                                                        Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin
+                                                        coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica,
+                                                        craft beer labore wes anderson cred nesciunt sapiente ea proident.
+                                                        Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer
+                                                        farm-to-table, raw denim aesthetic synth nesciunt you probably haven't
+                                                        heard of them accusamus labore sustainable.</p>
+                                                </div>
+                                            </div>
                                         </div>
-                                        <!-- Card body -->
-                                        <div id="collapse1" class="collapse show" role="tabpanel" aria-labelledby="heading1" data-parent="#accordionEx7">
-                                            <div class="card-body mb-1 rgba-grey-light white-text">
-                                                <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
-                                                    richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard
-                                                    dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf
-                                                    moon tempor, sunt aliqua put a bird on it squid single-origin coffee
-                                                    nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer
-                                                    labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur
-                                                    butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim
-                                                    aesthetic synth nesciunt you probably haven't heard of them accusamus
-                                                    labore sustainable.</p>
+                                        <!-- Accordion card -->
+                                        <!-- Accordion card -->
+                                        <div class="card young-passion-gradient">
+                                            <!-- Card header -->
+                                            <div class="card-header rgba-stylish-strong z-depth-1 mb-1" role="tab" id="heading3">
+                                                <a class="collapsed" data-toggle="collapse" data-parent="#accordionEx7" href="#collapse3" aria-expanded="false" aria-controls="collapse3">
+                                                    <h5 class="mb-0 white-text text-uppercase font-thin">
+                                                        Questions
+                                                        <i class="fa fa-angle-down rotate-icon"></i>
+                                                    </h5>
+                                                </a>
+                                            </div>
+                                            <!-- Card body -->
+                                            <div id="collapse3" class="collapse" role="tabpanel" aria-labelledby="heading3" data-parent="#accordionEx7">
+                                                <div class="card-body mb-1 rgba-grey-light white-text">
+                                                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
+                                                        doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo
+                                                        inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+                                                        Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit
+                                                        aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem
+                                                        sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia
+                                                        dolor sit amet, consectetur, adipisci velit, sed quia non numquam
+                                                        eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat
+                                                        voluptatem.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Accordion card -->
+                                    </div>
+                                    <!--/.Accordion wrapper-->
+                                </div>
+                                <!-- </div> -->
+                                <!-- Grid column -->
+                            </div>
+                        </div>
+                        <!-- Grid column -->
+                    </div>
+                    <!-- Grid row -->
+                </div>
+                <!-- Form with header -->
+            </section>
+            <!-- Section: Contact v.3 -->
+        </div>
+                <div class="container">
+                    <div class="col-lg-12 col-md-12 mb-lg-0 mb-4">
+                        <!-- Rotating card -->
+                        <div class="card-wrapper">
+                            <div id="chat-rotate" class="card-rotating effect__click w-100 h-100">
+                                <!-- Front Side -->
+                                <div class="face front">
+                                    <!-- Content -->
+                                    <div class="card-body mx-auto">
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <div class="card card-image" style="background-image: url(https://mdbootstrap.com/img/Photos/Others/gradient1.jpg);">
+                                                    <div class="text-white px-4 my-3">
+                                                        <h3 class="card-title font-bold">
+                                                            <strong>#in-class</strong>
+                                                        </h3>
+                                                    </div>
+                                                    <div>
+                                                        <a class="rotate-btn grey-text" data-card="chat-rotate">
+                                                            <i class="fa fa-repeat grey-text"></i>#in-structors</a>
+                                                    </div>
+                                                    <div class="container">
+                                                        <!-- Team Chat Box -->
+                                                        <div class="elegant-color-dark text-white py-5 px-4 my-3">
+                                                            <!-- All messages area -->
+                                                            <div>
+                                                                <div class="chip chip-md peach-gradient darken-2 white-text">
+                                                                    <img src="./img/images/blaise-hs-dt.png" alt="Contact Person"> Blaze
+                                                                </div>
+                                                                <span>blah-de blah-de blah</span>
+                                                                <br>
+                                                                <div class="chip chip-md aqua-gradient darken-2 white-text">
+                                                                    <img src="./img/images/stewart-hs-dt.png" alt="Contact Person"> Stewart
+                                                                </div>
+                                                                <span>What?</span>
+                                                                <br>
+                                                                <div class="chip chip-md morpheus-den-gradient darken-2 white-text">
+                                                                    <img src="./img/images/stephen-hs-dt.jpg" alt="Contact Person"> Stephen
+                                                                </div>
+                                                                <span>... Are you okay, man?</span>
+                                                            </div>
+                                                            <!-- /All messages area -->
+                                                            <!-- Message entry area -->
+                                                            <div>
+                                                                <div class="md-form primary-textarea active-primary-textarea">
+                                                                    <textarea type="text" id="form22" class="md-textarea form-control" rows="1" data-emojiable="true"></textarea>
+                                                                    <label for="form22">Type your message...</label>
+                                                                </div>
+                                                            </div>
+                                                            <!-- /Message entry area -->
+                                                        </div>
+                                                        <!-- /Team Chat Box -->
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <!-- Accordion card -->
-                                    <!-- Accordion card -->
-                                    <div class="card young-passion-gradient">
-                                        <!-- Card header -->
-                                        <div class="card-header rgba-stylish-strong z-depth-1 mb-1" role="tab" id="heading3">
-                                            <a class="collapsed" data-toggle="collapse" data-parent="#accordionEx7" href="#collapse3" aria-expanded="false" aria-controls="collapse3">
-                                                <h5 class="mb-0 white-text text-uppercase font-thin">
-                                                    Questions
-                                                    <i class="fa fa-angle-down rotate-icon"></i>
-                                                </h5>
-                                            </a>
-                                        </div>
-                                        <!-- Card body -->
-                                        <div id="collapse3" class="collapse" role="tabpanel" aria-labelledby="heading3" data-parent="#accordionEx7">
-                                            <div class="card-body mb-1 rgba-grey-light white-text">
-                                                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
-                                                    doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore
-                                                    veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo
-                                                    enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit,
-                                                    sed quia consequuntur magni dolores eos qui ratione voluptatem sequi
-                                                    nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit
-                                                    amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora
-                                                    incidunt ut labore et dolore magnam aliquam quaerat voluptatem.
-                                                </p>
+                                </div>
+                                <!-- Front Side -->
+                                <!-- Back Side -->
+                                <div class="face back">
+                                    <!-- Content -->
+                                    <div class="card-body">
+                                        <!-- Content -->
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <div class="card card-image" style="background-image: url(https://mdbootstrap.com/img/Photos/Others/gradient1.jpg);">
+                                                    <div class="text-white px-4 my-3">
+                                                        <h3 class="card-title font-bold">
+                                                            <strong>#in-structors</strong>
+                                                        </h3>
+                                                    </div>
+                                                    <div>
+                                                        <a class="rotate-btn grey-text" data-card="chat-rotate">
+                                                            <i class="fa fa-repeat grey-text"></i>#in-structors</a>
+                                                    </div>
+                                                    <div class="container">
+                                                        <!-- Team Chat Box -->
+                                                        <div class="elegant-color-dark text-white py-5 px-4 my-3">
+                                                            <!-- All messages area -->
+                                                            <div>
+                                                                <div class="chip chip-md peach-gradient darken-2 white-text">
+                                                                    <img src="./img/images/blaise-hs-dt.png" alt="Contact Person"> Blaze
+                                                                </div>
+                                                                <span>blah-de blah-de blah</span>
+                                                                <br>
+                                                                <div class="chip chip-md aqua-gradient darken-2 white-text">
+                                                                    <img src="./img/images/stewart-hs-dt.png" alt="Contact Person"> Stewart
+                                                                </div>
+                                                                <span>What?</span>
+                                                                <br>
+                                                                <div class="chip chip-md morpheus-den-gradient darken-2 white-text">
+                                                                    <img src="./img/images/stephen-hs-dt.jpg" alt="Contact Person"> Stephen
+                                                                </div>
+                                                                <span>... Are you okay, man?</span>
+                                                            </div>
+                                                            <!-- /All messages area -->
+                                                            <!-- Message entry area -->
+                                                            <div>
+                                                                <div class="md-form primary-textarea active-primary-textarea">
+                                                                    <textarea type="text" id="form22" class="md-textarea form-control" rows="1"></textarea>
+                                                                    <label for="form22">Type your message...</label>
+                                                                </div>
+                                                            </div>
+                                                            <!-- /Message entry area -->
+                                                        </div>
+                                                        <!-- /Team Chat Box -->
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <!-- Accordion card -->
                                 </div>
-                                <!--/.Accordion wrapper-->
+                                <!-- Back Side -->
                             </div>
-                            <!-- </div> -->
-                            <!-- Grid column -->
                         </div>
-                    </div>
-                    <!-- Grid column -->
-                </div>
-                <!-- Grid row -->
-            </div>
-            <!-- Form with header -->
-        </section>
-        <!-- Section: Contact v.3 -->
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="card card-image" style="background-image: url(https://mdbootstrap.com/img/Photos/Others/gradient1.jpg);">
-                        <div class="text-white px-4 my-3">
-                            <h3 class="card-title font-bold">
-                                <strong>#in-class</strong>
-                            </h3>
-                        </div>
-                        <div class="container">
-                            <!-- Team Chat Box -->
-                            <div class="elegant-color-dark text-white py-5 px-4 my-3">
-                                <!-- All messages area -->
-                                <div>
-                                    <div class="chip chip-md peach-gradient darken-2 white-text">
-                                        <img src="./img/images/blaise-hs-dt.png" alt="Contact Person"> Blaze
-                                    </div>
-                                    <span>blah-de blah-de blah</span>
-                                    <br>
-                                    <div class="chip chip-md aqua-gradient darken-2 white-text">
-                                        <img src="./img/images/stewart-hs-dt.png" alt="Contact Person"> Stewart
-                                    </div>
-                                    <span>What?</span>
-                                    <br>
-                                    <div class="chip chip-md morpheus-den-gradient darken-2 white-text">
-                                        <img src="./img/images/stephen-hs-dt.jpg" alt="Contact Person"> Stephen
-                                    </div>
-                                    <span>... Are you okay, man?</span>
-                                </div>
-                                <!-- /All messages area -->
-                                <!-- Message entry area -->
-                                <div>
-                                    <div class="md-form primary-textarea active-primary-textarea">
-                                        <textarea type="text" id="form22" class="md-textarea form-control" rows="1" data-emojiable="true"></textarea>
-                                        <label for="form22">Type your message...</label>
-                                    </div>
-                                </div>
-                                <!-- /Message entry area -->
-                            </div>
-                            <!-- /Team Chat Box -->
-                        </div>
+                        <!-- Rotating card -->
                     </div>
                 </div>
-            </div>
-        </div>
-        <br>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="card card-image" style="background-image: url(https://mdbootstrap.com/img/Photos/Others/gradient1.jpg);">
-                        <div class="text-white px-4 my-3">
-                            <h3 class="card-title font-bold">
-                                <strong>#in-structors</strong>
-                            </h3>
-                        </div>
-                        <div class="container">
-                            <!-- Team Chat Box -->
-                            <div class="elegant-color-dark text-white py-5 px-4 my-3">
-                                <!-- All messages area -->
-                                <div>
-                                    <div class="chip chip-md peach-gradient darken-2 white-text">
-                                        <img src="./img/images/blaise-hs-dt.png" alt="Contact Person"> Blaze
-                                    </div>
-                                    <span>blah-de blah-de blah</span>
-                                    <br>
-                                    <div class="chip chip-md aqua-gradient darken-2 white-text">
-                                        <img src="./img/images/stewart-hs-dt.png" alt="Contact Person"> Stewart
-                                    </div>
-                                    <span>What?</span>
-                                    <br>
-                                    <div class="chip chip-md morpheus-den-gradient darken-2 white-text">
-                                        <img src="./img/images/stephen-hs-dt.jpg" alt="Contact Person"> Stephen
-                                    </div>
-                                    <span>... Are you okay, man?</span>
-                                </div>
-                                <!-- /All messages area -->
-                                <!-- Message entry area -->
-                                <div>
-                                    <div class="md-form primary-textarea active-primary-textarea">
-                                        <textarea type="text" id="form22" class="md-textarea form-control" rows="1"></textarea>
-                                        <label for="form22">Type your message...</label>
-                                    </div>
-                                </div>
-                                <!-- /Message entry area -->
-                            </div>
-                            <!-- /Team Chat Box -->
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <br>
+
+
+
+
     </main>
     <!--Main Layout-->
     <!-- User Settings Modal -->
@@ -1004,7 +1052,7 @@
     </div>
     <!-- /Team Information Modal -->
     <!-- Footer -->
-    <footer class="page-footer font-small pt-4">
+    <footer class="page-footer font-small pt-4 mt-5">
         <!-- Footer Links -->
         <div class="container text-center text-md-left">
             <!-- Footer links -->
