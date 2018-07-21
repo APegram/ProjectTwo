@@ -165,6 +165,8 @@ Grey
 
 $(document).ready(function() {
 
+  $('.mdb-select').material_select();
+
   // FIXME: Emoji Picker Initialization
   /*
   $(function() {
