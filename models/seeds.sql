@@ -13,6 +13,23 @@ INSERT INTO userTable (admin, name, userName, email, password, theme) VALUES (fa
 INSERT INTO comments (text, name, stepNum) VALUES ("Help me TAs! I'm no where close to Blaise!", "Stephen", ;
 INSERT INTO comments (text, name, stepNum) VALUES ("Help me TAs! I wish I was as good as Blaise!", "Stewart", 0);
 
+INSERT INTO moduleIndex (moduleName, moduleTableName, moduleJSName) VALUES ('01-HTML-Git-CSS', "module1", "module1.js");
+INSERT INTO moduleIndex (moduleName, moduleTableName, moduleJSName) VALUES ('02-CSS-Bootstrap', "module2", "module2.js");
+INSERT INTO moduleIndex (moduleName, moduleTableName, moduleJSName) VALUES ('03-Javascript', "module3", "module3.js");
+INSERT INTO moduleIndex (moduleName, moduleTableName, moduleJSName) VALUES ('04-jQuery', "module4", "module4.js");
+INSERT INTO moduleIndex (moduleName, moduleTableName, moduleJSName) VALUES ('05-Timers', "module5", "module5.js");
+INSERT INTO moduleIndex (moduleName, moduleTableName, moduleJSName) VALUES ('06-AJAX', "module6", "module6.js");
+INSERT INTO moduleIndex (moduleName, moduleTableName, moduleJSName) VALUES ('07-Firebase', "module7", "module7.js");
+INSERT INTO moduleIndex (moduleName, moduleTableName, moduleJSName) VALUES ('08-Project-One', "module8", "module8.js");
+INSERT INTO moduleIndex (moduleName, moduleTableName, moduleJSName) VALUES ('09-Portfolio-updates', "module9", "module9.js");
+INSERT INTO moduleIndex (moduleName, moduleTableName, moduleJSName) VALUES ('10-Node.js', "module10", "module10.js");
+INSERT INTO moduleIndex (moduleName, moduleTableName, moduleJSName) VALUES ('11-JS-Constructors', "module11", "module11.js");
+INSERT INTO moduleIndex (moduleName, moduleTableName, moduleJSName) VALUES ('12-MySQL', "module12", "module12.js");
+INSERT INTO moduleIndex (moduleName, moduleTableName, moduleJSName) VALUES ('13-Express', "module13", "module13.js");
+INSERT INTO moduleIndex (moduleName, moduleTableName, moduleJSName) VALUES ('14-Handlebars', "module14", "module14.js");
+INSERT INTO moduleIndex (moduleName, moduleTableName, moduleJSName) VALUES ('15-Sequelize', "module15", "module15.js");
+
+
 
 --sequelize module seeds
 INSERT INTO `TensionDB`.`exerciseOne` (`id`, `Title`, `description`, `countDown`, `Step_1`, `Step_2`, `Step_3`, `Step_4`, `Step_5`, `Step_6`) VALUES ('1', 'Chirpy', 'exercise one', '5:00', ' Using the app skeleton provided to you:', ' Create a MySQL database named `\'chirpy\'` with a `\'chirps\'` table to hold your data.', ' Your `\'chirp\'` table should include a field for id, author, chirp, and time created.', ' Modify the connection.js file to create a connection to your database.', ' Modify the api-routes.js file so that there is a route for adding a new chirp, as well as retrieving all chirps.', ' Modify the chirps.js file so that the page interacts with the database.');
