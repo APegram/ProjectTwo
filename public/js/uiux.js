@@ -185,7 +185,7 @@ $(document).ready(function() {
 
   $(".countdown.multisize").circularCountdown({
     startDate:"2018/07/21 10:00:00",
-    endDate:"2018/07/21 16:30:00",
+    endDate:"2018/07/21 17:30:00",
     timeZone:-5,	//Time zone of New York. Find timezone of your location and write here.
 
       showDay:false,
@@ -197,37 +197,37 @@ $(document).ready(function() {
 
     //Diameters
     dayDiameter:72,
-    hourDiameter:72,
+    hourDiameter:42,
     minuteDiameter:72,
     secondDiameter:52,
 
     //Circle BG width
     dayBgWidth:5,
-    hourBgWidth:5,
+    hourBgWidth:-200,
     minuteBgWidth:-200,
     secondBgWidth:2,
 
     //Circle width
     dayCircleWidth:5,
-    hourCircleWidth:5,
+    hourCircleWidth:2,
     minuteCircleWidth:2,
     secondCircleWidth:2,
 
     //Circle color
     dayCircleColor:"#91304e",
-    hourCircleColor:"#91304e",
+    hourCircleColor:"#ffffff",
     minuteCircleColor:"#ffffff",
     secondCircleColor:"#ffffff",
 
     //Counter font size
     dayCounterFontSize:24,
-    hourCounterFontSize:24,
+    hourCounterFontSize:16,
     minuteCounterFontSize:24,
     secondCounterFontSize:16,
 
     //Counter font color
     dayCounterFontColor:"#91304e",
-    hourCounterFontColor:"#91304e",
+    hourCounterFontColor:"#ffffff",
     minuteCounterFontColor:"#ffffff",
     secondCounterFontColor:"#ffffff",
 
