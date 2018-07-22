@@ -1,5 +1,6 @@
 var db = require("../models");
 var path = require("path");
+var isAuthenticated = require("../config/middleware/isAuthenticated");
 
 module.exports = function(app) {
   // Load index page
@@ -17,9 +18,12 @@ module.exports = function(app) {
   });
 
   
-  app.get("/PTA", function(req, res){
-    console.log(req);
-    res.sendFile(path.join(__dirname, "/../public/instructor.html"));
+  app.get("/STU", isAuthenticated, function(req, res){
+    console.log(req.user);
+    if (req.user){
+      console.log(req);
+      res.render("instructor", {layout: "inClass.handlebars"});
+    }
   });
 
 

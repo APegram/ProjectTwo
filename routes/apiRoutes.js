@@ -1,32 +1,30 @@
 var db = require("../models");
+var passport = require("../config/passport")
 
 module.exports = function (app) {
-  // Get all examples
-  app.get("/api/examples", function (req, res) {
-    db.Example.findAll({}).then(function (dbExamples) {
-      res.json(dbExamples);
-    });
-  });
-
-  // Create a new example
-  app.post("/api/examples", function (req, res) {
-    db.Example.create(req.body).then(function (dbExample) {
-      res.json(dbExample);
-    });
-  });
-
-  // Delete an example by id
-  app.delete("/api/examples/:id", function (req, res) {
-    db.Example.destroy({
-      where: {
-        id: req.params.id
-      }
-    }).then(function (dbExample) {
-      res.json(dbExample);
-    });
-  });
-
   // Verify email not in use
+  // app.post("/api/users", function (req, res) {
+  //   var newUser = req.body;
+
+  //   db.userTable.findOrCreate({
+  //     where: {
+  //       email: newUser.email
+  //     },
+  //     defaults: {
+  //       name: newUser.name,
+  //       userName: newUser.userName,
+  //       // email: newUser.email,
+  //       password: newUser.password
+  //     }
+  //   }).then(function (result) {
+  //     res.send(result)
+  //   })
+  // })
+
+  // app.post("/api/login", passport.authenticate("local"), function (req, res) {
+  //   res.json("/PTA");
+  // })
+
   app.post("/api/users", function (req, res) {
     var newUser = req.body;
 
@@ -41,12 +39,16 @@ module.exports = function (app) {
         password: newUser.password
       }
     }).then(function (result) {
-      res.send(result)
-    })
+        console.log(result[1]);
+        return res.send(result);
+      
+    });
   })
 
+
   // Verify Login
-  app.post("/api/userVerify", function (req, res) {
+  app.post("/api/userVerify", passport.authenticate("local"), function (req, res) {
+    console.log(req.body);
     var userCredentials = req.body;
 
     db.userTable.findOne({
@@ -55,16 +57,33 @@ module.exports = function (app) {
       }
     }).then(function (results) {
       // console.log(results);
-      if (results.password !== userCredentials.password) {
-        return res.send("failed");
+      console.log(results.dataValues.admin);
+      if(results.dataValues.admin === false){
+        res.json("/PTA")
       }
-
-      if (results.admin === true){
-        return res.send([results.name, "admin"]);
-      } 
-
-      //otherwise send student
-      res.send([results.name, "student"]);
     })
   })
+
+
+    // Route for getting some data about our user to be used client side
+    app.get("/api/user_data", function(req, res) {
+      if (!req.user) {
+        // The user is not logged in, send back an empty object
+        res.json({});
+      }
+      else {
+        // Otherwise send back the user's email and id
+        // Sending back a password, even a hashed password, isn't a good idea
+        res.json({
+          email: req.user.email,
+          id: req.user.id
+        });
+      }
+    })
+  
+
+
 }
+
+
+
