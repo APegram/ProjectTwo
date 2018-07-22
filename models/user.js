@@ -7,7 +7,7 @@ module.exports = function(sequelize, Sequelize) {
     password: {type: Sequelize.STRING, allowNull: false},
     theme: {type: Sequelize.STRING, allowNull: false, defaultValue: "Black"},
     issue: {type: Sequelize.BOOLEAN, allowNull: false, defaultValue: false},
-    picture: {type: Sequelize.BLOB, allowNull: false, defaultValue: "https://mdbootstrap.com/img/Photos/Others/photo6.jpg"},
+    picture: {type: Sequelize.BLOB},
     about: {type: Sequelize.TEXT},
     linkedin: {type: Sequelize.STRING},
     github: {type: Sequelize.STRING},
