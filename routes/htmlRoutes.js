@@ -18,11 +18,11 @@ module.exports = function(app) {
   });
 
   
-  app.get("/PTA", isAuthenticated, function(req, res){
+  app.get("/STU", isAuthenticated, function(req, res){
     console.log(req.user);
     if (req.user){
       console.log(req);
-      res.sendFile(path.join(__dirname, "../views/instructor.handlebars"));
+      res.render("instructor", {layout: "inClass.handlebars"});
     }
   });
 

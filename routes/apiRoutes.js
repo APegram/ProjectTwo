@@ -57,16 +57,10 @@ module.exports = function (app) {
       }
     }).then(function (results) {
       // console.log(results);
-      if (results.password !== userCredentials.password) {
-        return res.send("failed");
+      console.log(results.dataValues.admin);
+      if(results.dataValues.admin === false){
+        res.json("/PTA")
       }
-
-      if (results.admin === true) {
-        return res.send([results.name, "admin"]);
-      }
-
-      //otherwise send student
-      res.send([results.name, "student"]);
     })
   })
 
