@@ -163,25 +163,59 @@
                                             Regular stand-ups help ensure everyone is on the same page with what they are
                                             working on and everyone gets help they might need.</li>
                                     </ul>
-                                    <h2 id="instructions">Instructions</h2>
+                                    <h2 id="instructions">
+
+                                        Instructions
+                                        <button class="btn young-passion-gradient btn-sm" data-toggle="modal" data-target="#modalStudentQuestion">
+                                            <i class="fas fa-question"></i>
+                                        </button>
+                                    </h2>
                                     <ul>
                                         <li>
-                                            <p>Before your first stand-up, each member of the team should go through the "To
-                                                Do" column of the project board and self-assign at least one issue.</p>
+
+                                            <p>
+                                                <label class="btn btn-primary btn-rounded btn-sm" data-toggle="buttons">
+                                                    <input type="checkbox" autocomplete="off">
+                                                    <i class="fas fa-check"></i>
+                                                </label>Before your first stand-up, each member of the team should go through the
+                                                "To Do" column of the project board and self-assign at least one issue.
+
+                                            </p>
+
                                             <ul>
-                                                <li>To do this, click on the issue and on the right choose "self-assign".</li>
+                                                <li>To do this, click on the issue and on the right choose "self-assign".
+
+                                                </li>
                                             </ul>
                                         </li>
                                         <li>
-                                            <p>Everyone should have a clear idea of what they think they can accomplish today.
-                                                Now it's time for your first stand-up!</p>
+                                            <p>
+                                                <label class="btn btn-primary btn-rounded btn-sm" data-toggle="buttons">
+                                                    <input type="checkbox" autocomplete="off">
+                                                    <i class="fas fa-check"></i>
+                                                </label>
+                                                Everyone should have a clear idea of what they think they can accomplish today. Now it's time for your first stand-up!
+
+                                            </p>
                                         </li>
                                         <li>
-                                            <p>Stand if you are able - yep, stand-ups take place standing; this helps to ensure
-                                                that the meetings are short and to the point.</p>
+                                            <p>
+                                                <label class="btn btn-primary btn-rounded btn-sm" data-toggle="buttons">
+                                                    <input type="checkbox" autocomplete="off">
+                                                    <i class="fas fa-check"></i>
+                                                </label>
+                                                Stand if you are able - yep, stand-ups take place standing; this helps to ensure that the meetings are short and to the point.
+
+                                            </p>
                                         </li>
                                         <li>
-                                            <p>Each member of the team should say:</p>
+                                            <p>
+                                                <label class="btn btn-primary btn-rounded btn-sm" data-toggle="buttons">
+                                                    <input type="checkbox" autocomplete="off">
+                                                    <i class="fas fa-check"></i>
+                                                </label>
+                                                Each member of the team should say:
+                                            </p>
                                             <ul>
                                                 <li>What they did yesterday</li>
                                                 <li>What they plan to do today</li>
@@ -189,11 +223,18 @@
                                             </ul>
                                         </li>
                                         <li>
-                                            <p>Stand-ups should be held
+                                            <p>
+                                                <label class="btn btn-primary btn-rounded btn-sm" data-toggle="buttons">
+                                                    <input type="checkbox" autocomplete="off">
+                                                    <i class="fas fa-check"></i>
+                                                </label>
+                                                Stand-ups should be held
                                                 <strong>daily</strong> from this point forward - yes even days that you don't have
-                                                class (use Slack or Google Hangouts).</p>
+                                                class (use Slack or Google Hangouts).
+                                            </p>
                                         </li>
                                     </ul>
+
                                 </article>
                             </div>
                         </div>
@@ -835,6 +876,35 @@
         </div>
     </div>
     <!-- /Team Information Modal -->
+
+    <!-- Student Question Modal -->
+    <div class="modal fade" id="modalStudentQuestion" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header text-center">
+                    <h4 class="modal-title w-100 font-weight-bold">Request Help</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body mx-3">
+                    <div class="md-form">
+                        <i class="fas fa-question prefix grey-text"></i>
+                        <textarea type="text" id="form8" class="md-textarea form-control" rows="4"></textarea>
+                        <label data-error="wrong" data-success="right" for="form8">Your question</label>
+                    </div>
+                </div>
+                <div class="modal-footer d-flex justify-content-center">
+                    <button class="btn btn-primary">
+                        <i class="fal fa-paper-plane"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /Student Question Modal -->
+
+
     <!-- Footer -->
     <footer class="page-footer font-small pt-4 mt-5">
         <!-- Footer Links -->
