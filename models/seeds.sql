@@ -1,3 +1,15 @@
+INSERT INTO userTable (admin, name, userName, email, password, theme) VALUES (false, "Bob", "mynameisbob", "bob@gmail.com", "hello", "Black");
+INSERT INTO userTable (admin, name, userName, email, password, theme) VALUES (true, "Jeff", "mynameisjeff", "jeff@gmail.com", "hello", "Black");
+INSERT INTO userTable (admin, name, userName, email, password, theme) VALUES (false, "Pawel", "mynameispawel", "pawel@gmail.com", "hello", "Black");
+INSERT INTO userTable (admin, name, userName, email, password, theme) VALUES (true, "Doyle", "mynameisdoyle", "doyle@gmail.com", "hello", "Black");
+INSERT INTO userTable (admin, name, userName, email, password, theme) VALUES (true, "Matt", "mynameismatt", "matt@gmail.com", "hello", "Black");
+INSERT INTO userTable (admin, name, userName, email, password, theme) VALUES (true, "Morgan", "mynameismorgan", "morgan@gmail.com", "hello", "Black");
+INSERT INTO userTable (admin, name, userName, email, password, theme) VALUES (false, "Stewart", "mynameisstewart", "stewar@gmail.com", "hello", "Black");
+INSERT INTO userTable (admin, name, userName, email, password, theme) VALUES (false, "Stephen", "mynameisstephen", "stephen@gmail.com", "hello", "Black");
+INSERT INTO userTable (admin, name, userName, email, password, theme) VALUES (false, "Adam", "mynameisadam", "adam@gmail.com", "hello", "Black");
+INSERT INTO userTable (admin, name, userName, email, password, theme) VALUES (false, "Blaise", "mynameisblaise", "blaise@gmail.com", "hello", "Black");
+
+
 INSERT INTO comments (text, name, stepNum) VALUES ("Help me TAs! I'm no where close to Blaise!", "Stephen", 0);
 INSERT INTO comments (text, name, stepNum) VALUES ("Help me TAs! I wish I was as good as Blaise!", "Stewart", 0);
 
