@@ -45,6 +45,8 @@ module.exports = function(sequelize, Sequelize) {
         stepTwelve: {
             type: Sequelize.TEXT
         }
+    }, {
+        freezeTableName: true
     });
     return Module13;
 };

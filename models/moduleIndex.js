@@ -3,6 +3,8 @@ module.exports = function(sequelize, Sequelize) {
       moduleName: {type: Sequelize.STRING},
       moduleTableName: {type: Sequelize.STRING},
       moduleJSName: {type: Sequelize.INTEGER}
-    });
+    }, {
+      freezeTableName: true
+  });
     return ModuleIndex;
   };
