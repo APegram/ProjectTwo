@@ -115,6 +115,7 @@ $(function () {
     socket.on("newExercise", function (data) {
         if (data.exerciseName != exerciseName) {
             exerciseName = data.exerciseName;
+            currentStep = 1;
             $("#comments").empty();
             $("#instructionsList").empty();
             $("#completed").empty();
