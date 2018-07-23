@@ -67,7 +67,7 @@ module.exports = function(app) {
           });
         }
       })
-      res.render("instructor", handlebarsObject);
+      res.render("student", handlebarsObject);
     }
   });
 
