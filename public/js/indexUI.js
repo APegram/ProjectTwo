@@ -68,6 +68,7 @@ $("#reg-to-login").on("click", function (event) {
 
 function isEmail(email) {
     var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+    console.log(email);
     return regex.test(email);
 }
 
@@ -77,25 +78,25 @@ $("#continue-form").on("click", function () {
 
 $("#re-register").on("click", function () {
     $("#Modal-pwNoMatch").modal("toggle")
-    $("#create-userPW").val("");
+    $("#userPW").val("");
     $("#v-userPW").val("");
 })
 
 $("#re-type-email").on("click", function () {
-    $("#Modal-emailTaken").modal("toggle")
-    $("#create-userEmail").val("");
-    $("#create-userPW").val("");
+    $("#userEmail").val("");
+    $("#userPW").val("");
     $("#v-userPW").val("");
+    $("#Modal-emailTaken").modal("toggle")
 })
 
 
 
 
 $(".mainEscape").on("click", function () {
-    var email = $("#create-userEmail").val("");
-    var name = $("#create-userName").val("");
-    var displayName = $("#create-displayName").val("");
-    var pass1 = $("#create-userPW").val("");
+    var email = $("#userEmail").val("");
+    var name = $("#userName").val("");
+    var displayName = $("#displayName").val("");
+    var pass1 = $("#userPW").val("");
     var pass2 = $("#v-userPW").val("");
     $("#bch-createAccount").addClass("bch-hide");
     $("bch-loginMenu").addClass("bch-hide");
