@@ -5,7 +5,7 @@
     "database": "tensionDB",
     "host": "localhost",
     "dialect": "mysql",
-    "port": "/Applications/MAMP/tmp/mysql/mysql.sock"
+    "port": 3006
   },
   "test": {
     "username": "root",
