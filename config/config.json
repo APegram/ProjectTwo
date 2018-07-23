@@ -4,8 +4,8 @@
     "password": "root",
     "database": "tensionDB",
     "host": "localhost",
-    "dialect": "mysql",
-    "port": 3006
+    "port": 3006,
+    "dialect": "mysql"
   },
   "test": {
     "username": "root",
