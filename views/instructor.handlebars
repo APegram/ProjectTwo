@@ -153,12 +153,12 @@
                             <article id="markdown" class="markdown-body">
                                 <h2 id="students-do-first-stand-up">Students Do: First Stand-up</h2>
                                 <ul>
-                                    <li>In this activity you will take part in your first stand-up with your group mates. Regular
+                                    <li id="description">In this activity you will take part in your first stand-up with your group mates. Regular
                                         stand-ups help ensure everyone is on the same page with what they are working on
                                         and everyone gets help they might need.</li>
                                 </ul>
-                                <h2 id="instructions">Instructions</h2>
-                                <ul>
+                                <h2>Instructions</h2>
+                                <ul style="list-style: none;" id="instructionsList">
                                     <li>
                                         <p>Before your first stand-up, each member of the team should go through the "To Do"
                                             column of the project board and self-assign at least one issue.</p>
@@ -189,9 +189,6 @@
                                     </li>
                                 </ul>
                             </article>
-                            <button class="btn btn-primary" id="progressShow" type="button">
-                                Open student progress panel
-                            </button>
                         </div>
                     </div>
                     <!-- Grid column -->
@@ -225,8 +222,10 @@
                                         </div>
                                         <!-- Card body -->
                                         <div id="collapse1" class="collapse show" role="tabpanel" aria-labelledby="heading1" data-parent="#accordionEx7">
-                                            <div class="card-body mb-1 rgba-grey-light white-text">
+                                            <div class="card-body mb-1 rgba-grey-light">
                                                 <!-- Students that have completed the exercise will appear here -->
+                                                <ul id="completed" class="list-group list-group-flush">
+                                                </ul>
                                             </div>
                                         </div>
                                     </div>
@@ -244,8 +243,10 @@
                                         </div>
                                         <!-- Card body -->
                                         <div id="collapse3" class="collapse" role="tabpanel" aria-labelledby="heading3" data-parent="#accordionEx7">
-                                            <div class="card-body mb-1 rgba-grey-light white-text">
+                                            <div class="card-body mb-1 rgba-grey-light">
                                                 <!-- Students that have questions will appear here -->
+                                                <ul id="comments" class="list-group list-group-flush">
+                                                </ul>
                                             </div>
                                         </div>
                                     </div>
@@ -296,20 +297,24 @@
                                             <!-- Team Chat Box -->
                                             <div class="elegant-color-dark text-white py-5 px-4 my-3">
                                                 <!-- All messages area -->
-                                                <div>
+                                                <div id="chat" style="height: 140px; overflow: scroll;">
                                                     <!-- In-class messages will be appended here -->
-                                                    {{#each comment}}
-                                                    <div class="chip chip-md peach-gradient darken-2 white-text">
-                                                        <img src={{user-image}} alt={{user-name}}> {{user-name}}
-                                                    </div>
-                                                    <span>{{comment}}</span>
+                                                    {{#each chats}}
+                                                    <p>
+                                                        <span>
+                                                            <div class="chip chip-md peach-gradient darken-2 white-text">
+                                                                <img src="./img/images/einstein.jpg" alt={{name}}> {{name}}
+                                                            </div>
+                                                            <span>{{text}}</span>
+                                                        </span>
+                                                    </p>
                                                     {{/each}}
                                                 </div>
                                                 <!-- /All messages area -->
                                                 <!-- Message entry area -->
                                                 <div>
                                                     <div class="md-form primary-textarea active-primary-textarea">
-                                                        <textarea type="text" id="form22" class="md-textarea form-control" rows="1" data-emojiable="true"></textarea>
+                                                        <textarea type="text" id="chats" class="md-textarea form-control" rows="1" data-emojiable="true"></textarea>
                                                         <label for="form22">Type your message...</label>
                                                     </div>
                                                 </div>
@@ -350,13 +355,13 @@
                                             <!-- Team Chat Box -->
                                             <div class="elegant-color-dark text-white py-5 px-4 my-3">
                                                 <!-- All messages area -->
-                                                <div>
+                                                <div class="chat">
                                                     <!-- In-structors messages will be appended here -->
-                                                    {{#each comment}}
+                                                    {{#each chats}}
                                                     <div class="chip chip-md peach-gradient darken-2 white-text">
-                                                        <img src={{user-image}} alt={{user-name}}> {{user-name}}
+                                                        <img src="./img/images/einstein.jpg" alt={{name}}> {{name}}
                                                     </div>
-                                                    <span>{{comment}}</span>
+                                                    <span>{{text}}</span>
                                                     {{/each}}
                                                 </div>
                                                 <!-- /All messages area -->
@@ -413,32 +418,47 @@
                 <hr>
                 <div class="md-form form-sm mb-5">
                     <!--Blue select-->
-                    <select class="mdb-select colorful-select dropdown-primary">
-                        <option data-title="module2">01: HTML, Git, CSS</option>
-                        <option data-title="module1">02: CSS, Bootstrap</option>
-                        <option data-title="module3">03: JavaScript</option>
-                        <option data-title="module4">04: jQuery</option>
-                        <option data-title="module5">05: Timers</option>
-                        <option data-title="module6">06: AJAX</option>
-                        <option data-title="module7">07: Firebase</option>
-                        <option data-title="module8">08: Project One</option>
-                        <option data-title="module9">09: Portfolio Updates</option>
-                        <option data-title="module10">10: Node.js</option>
-                        <option data-title="module11">11: JS Constructors</option>
-                        <option data-title="module12">12: MySQL</option>
-                        <option data-title="module13">13: Express</option>
-                        <option data-title="module14">14: Handlebars</option>
-                        <option data-title="module15">15: Sequelize</option>
-                    </select>
-                    <label>Module</label>
+                    <!--Dropdown primary-->
+                    <div class="dropdown">
+
+                        <!--Trigger-->
+                        <button class="btn btn-block btn-primary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false">Choose Module</button>
+
+
+                        <!--Menu-->
+                        <div class="dropdown-menu dropdown-primary">
+
+                            <a class="dropdown-item selectModule" href="#" data-title="module1">01: HTML, Git, CSS</a>
+                            <a class="dropdown-item selectModule" href="#" data-title="module2">02: CSS, Bootstrap</a>
+                            <a class="dropdown-item selectModule" href="#" data-title="module3">03: JavaScript</a>
+                            <a class="dropdown-item selectModule" href="#" data-title="module4">04: jQuery</a>
+                            <a class="dropdown-item selectModule" href="#" data-title="module5">05: Timers</a>
+                            <a class="dropdown-item selectModule" href="#" data-title="module6">06: AJAX</a>
+                            <a class="dropdown-item selectModule" href="#" data-title="module7">07: Firebase</a>
+                            <a class="dropdown-item selectModule" href="#" data-title="module8">08: Project One</a>
+                            <a class="dropdown-item selectModule" href="#" data-title="module9">09: Portfolio Updates</a>
+                            <a class="dropdown-item selectModule" href="#" data-title="module10">10: Node.js</a>
+                            <a class="dropdown-item selectModule" href="#" data-title="module11">11: JS Constructors</a>
+                            <a class="dropdown-item selectModule" href="#" data-title="module12">12: MySQL</a>
+                            <a class="dropdown-item selectModule" href="#" data-title="module13">13: Express</a>
+                            <a class="dropdown-item selectModule" href="#" data-title="module14">14: Handlebars</a>
+                            <a class="dropdown-item selectModule" href="#" data-title="module15">15: Sequelize</a>
+                        </div>
+                    </div>
+                    <!--/Dropdown primary-->
+                    <div class="dropdown">
+                        <button class="btn btn-block btn-primary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false">Exercise</button>
+                        <div class="dropdown-menu dropdown-primary" id="exercises">
+                        </div>
+
+                    </div>
                     <!--/Blue select-->
                 </div>
                 <div class="md-form form-sm mb-4">
                     <!--Blue select-->
-                    <select class="mdb-select colorful-select dropdown-primary">
-                        {{#each title}}
-                        <option data-id="{{title}}">{{title}}</option>
-                        {{/each}}
+                    <select id="exercises" class="mdb-select colorful-select dropdown-primary">
                     </select>
                     <label>Exercise</label>
                     <!--/Blue select-->
@@ -446,7 +466,7 @@
             </div>
             <!--Footer-->
             <div class="modal-footer justify-content-center">
-                <a type="button" class="btn btn-primary waves-effect waves-light">Launch
+                <a type="button" id="startExercise" class="btn btn-primary waves-effect waves-light">Launch
                     <i class="fas fa-plane-departure ml-1"></i>
                 </a>
                 <a type="button" class="btn btn-outline-primary waves-effect" data-dismiss="modal">Cancel</a>

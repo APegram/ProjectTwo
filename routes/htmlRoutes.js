@@ -19,15 +19,82 @@ module.exports = function(app) {
 
   app.get("/PTA", isAuthenticated, function(req, res){
     if (req.user){
-      res.render("instructor", {layout: "inClass.handlebars"});
+      var handlebarsObject = {
+        layout: "inClass.handlebars",
+        chats: [],
+        comments: [],
+      }
+      db.chats.findAll({}).then(function (results) {
+        for (i = 0; i < results.length; i++) {
+          handlebarsObject.chats.push({
+            text: results[i].text,
+            name: results[i].userName
+          });
+        }
+      })
+      db.comments.findAll({}).then(function (results) {
+        for (i = 0; i < results.length; i++) {
+          handlebarsObject.comments.push({
+            name: results[i].name,
+            text: results[i].text
+          });
+        }
+      })
+      res.render("instructor", handlebarsObject);
     }
   });
   
   app.get("/STU", isAuthenticated, function(req, res){
     if (req.user){
-      res.render("student", {layout: "inClass.handlebars"});
+      var handlebarsObject = {
+        layout: "inClass.handlebars",
+        chats: [],
+        comments: [],
+      }
+      db.chats.findAll({}).then(function (results) {
+        for (i = 0; i < results.length; i++) {
+          handlebarsObject.chats.push({
+            text: results[i].text,
+            name: results[i].userName
+          });
+        }
+      })
+      db.comments.findAll({}).then(function (results) {
+        for (i = 0; i < results.length; i++) {
+          handlebarsObject.comments.push({
+            name: results[i].name,
+            text: results[i].text
+          });
+        }
+      })
+      res.render("instructor", handlebarsObject);
     }
   });
+
+  // app.get("/PTA", function (req, res) {
+  //   var handlebarsObject = {
+  //     layout: "inClass.handlebars",
+  //     chats: [],
+  //     comments: [],
+  //   }
+  //   db.chats.findAll({}).then(function (results) {
+  //     for (i = 0; i < results.length; i++) {
+  //       handlebarsObject.chats.push({
+  //         text: results[i].text,
+  //         name: results[i].userName
+  //       });
+  //     }
+  //   })
+  //   db.comments.findAll({}).then(function (results) {
+  //     for (i = 0; i < results.length; i++) {
+  //       handlebarsObject.comments.push({
+  //         name: results[i].name,
+  //         text: results[i].text
+  //       });
+  //     }
+  //   })
+  //   res.render("instructor", handlebarsObject);
+  // });
 
 
 

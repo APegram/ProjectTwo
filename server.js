@@ -22,6 +22,24 @@ app.use(session({ secret: "keyboard cat", resave: true, saveUninitialized: true}
 app.use(passport.initialize());
 app.use(passport.session());
 
+var server = require("http").Server(app);
+var io = require("socket.io")(server);
+io.on('connection', function (socket) {
+  console.log("User connected");
+  socket.on("newExercise", function(data) {
+    io.emit("newExercise", data);  
+  });
+  socket.on("newCompleted", function(data) {
+    io.emit("newCompleted", data);
+  });
+  socket.on("newComment", function(data) {
+    io.emit("newComment", data);
+  });
+  socket.on("newChat", function(data) {
+    io.emit("newChat", data);
+  })
+});
+
 // Handlebars
 app.engine(
   "handlebars",
@@ -45,7 +63,7 @@ if (process.env.NODE_ENV === "test") {
 
 // Starting the server, syncing our models ------------------------------------/
 db.sequelize.sync(syncOptions).then(function() {
-  app.listen(PORT, function() {
+  server.listen(PORT, function() {
     console.log(
       "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",
       PORT,
