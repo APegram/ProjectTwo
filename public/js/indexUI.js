@@ -103,39 +103,34 @@ $(".mainEscape").on("click", function () {
 })
 
 $("#login-load").on("click", function (event) {
-            event.preventDefault();
-            var pass = $("#login-userPassword").val();
-            var user = $("#login-userEmail").val();
-            console.log("Test")
+    event.preventDefault();
+    var pass = $("#login-userPassword").val();
+    var user = $("#login-userEmail").val();
+    console.log("Test")
 
-            if (!pass || !user) {
-                $("#Modal-blankField").modal("toggle");
-            } else {
-                console.log("Creating credentials...")
-                var userLogin = {
-                    email: user,
-                    password: pass
-                }
+    if (!pass || !user) {
+        $("#Modal-blankField").modal("toggle");
+    } else {
+        console.log("Creating credentials...")
+        var userLogin = {
+            email: user,
+            password: pass
+        }
 
-                //Check database for credentials.
-                $.ajax("/api/userVerify", {
-                    type: "POST",
-                    data: userLogin
-                }).then(function (data) {
-                    console.log(data);
-                    var name = data[0];
-                    var role = data[1];
-                    if (data !== "failed") {
-                        if (data[1] === "admin"){
-                            return window.location.replace("/PTA")
-                        } return window.location.replace("/STU")
-                    }
-                })
-            }
+        //Check database for credentials.
+        $.ajax("/api/userVerify", {
+            type: "POST",
+            data: userLogin
+        }).then(function (data) {
+            //serves which ever page the user has access too.
+            return window.location.replace(data)
+
         })
+    }
+})
 
 
-        $("#failed-login").on("click", function () {
-            $("#bch-loginMenu").addClass("bch-hide");
-            $("#bch-createAccount").removeClass("bch-hide");
-        });
+$("#failed-login").on("click", function () {
+    $("#bch-loginMenu").addClass("bch-hide");
+    $("#bch-createAccount").removeClass("bch-hide");
+});
