@@ -372,7 +372,7 @@ module.exports = function (app) {
 
   // Verify Login
   app.post("/api/userVerify", passport.authenticate("local"), function (req, res) {
-    console.log(req.body);
+    console.log("running verify");
     var userCredentials = req.body;
 
     db.userTable.findOne({
