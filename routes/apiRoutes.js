@@ -58,12 +58,9 @@ module.exports = function (app) {
     }).then(function (results) {
       // console.log(results);
       console.log(results.dataValues.admin);
-      if (results.dataValues.admin === true) {
-        return res.json("/PTA")
+      if(results.dataValues.admin === false){
+        res.json("/PTA")
       }
-      (results.dataValues.admin === false) 
-      res.json("/STU")
-      
     })
   })
 
@@ -79,25 +76,9 @@ module.exports = function (app) {
         // Sending back a password, even a hashed password, isn't a good idea
         res.json({
           email: req.user.email,
-          id: req.user.id,
-          name: req.user.name,
-          displayName: req.user.userName,
-          theme: req.user.theme,
-          picture: req.user.picture,
-          linkedin: req.user.linkedin,
-          github: req.user.github,
-          instagram: req.user.instagram,
-          facebook: req.user.facebook,
-          twitter: req.user.twitter
-          //portfolio: req.user.portfolio
+          id: req.user.id
         });
       }
-    })
-
-    //logs user out
-    app.get("/logout", function(req, res){
-      req.logout();
-      res.redirect("/")
     })
   
 

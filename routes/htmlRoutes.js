@@ -17,18 +17,14 @@ module.exports = function(app) {
     });
   });
 
-  app.get("/PTA", isAuthenticated, function(req, res){
+  
+  app.get("/STU", isAuthenticated, function(req, res){
+    console.log(req.user);
     if (req.user){
+      console.log(req);
       res.render("instructor", {layout: "inClass.handlebars"});
     }
   });
-  
-  app.get("/STU", isAuthenticated, function(req, res){
-    if (req.user){
-      res.render("student", {layout: "inClass.handlebars"});
-    }
-  });
-
 
 
   // Render 404 page for any unmatched routes **Needs to be at the end of all the routes**
