@@ -64,7 +64,6 @@ $(function () {
 
     $("#createComment").on("click", function (event) {
         event.preventDefault();
-        $("#studentQuestion").val('');
         var newComment = {
             name: studentName,
             text: $("#studentQuestion").val(),
@@ -75,8 +74,10 @@ $(function () {
             url: "api/comments",
             data: newComment
         }).then(function (data) {
+            console.log(newComment);
             socket.emit("newComment", newComment);
         })
+        $("#studentQuestion").val('');
     })
 
     $(document).on("click", ".stepComplete", function (event) {
