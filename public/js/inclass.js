@@ -3,19 +3,12 @@ $(function () {
     var moduleName;
     var currentStep = 1;
     var studentName;
-    var studentID = 0;
     var totalSteps = 1;
     var exerciseName;
-    var timeRemaining;
-    var exerciseStarted = false;
     var exerciseClicked;
-    function startClock(countDown) {
-        if (timeRemaining === 0 ) {
-            exerciseStarted = false;
-        }
-    }
+    var completedArray = [];
+
     $.get("/api/user_data").then(function(data) {
-        // console.log(data);
         studentName = data.displayName;
       });
       var elem = document.getElementById('chat');
@@ -26,13 +19,11 @@ $(function () {
     $(".selectModule").on("click", function (event) {
         event.preventDefault();
         moduleName = $(this).attr("data-title");
-        console.log(moduleName);
         $.ajax({
             type: "GET",
             url: "api/" + moduleName
         }).then(function (results) {
             $("#exercises").empty();
-            console.log(results);
             for (i = 0; i < results.length; i++) {
                 var exerciseOption = $("<a>");
                 exerciseOption.attr("data-title", results[i].title);
@@ -47,9 +38,7 @@ $(function () {
 
     $(document).on("click", ".selectExercise", function(event) {
         event.preventDefault();
-        console.log("This is working")
         exerciseClicked = $(this).attr("data-title");
-        console.log(exerciseClicked);
     });
 
     $("#startExercise").on("click", function (event) {
@@ -74,7 +63,6 @@ $(function () {
             url: "api/comments",
             data: newComment
         }).then(function (data) {
-            console.log(newComment);
             socket.emit("newComment", newComment);
         })
         $("#studentQuestion").val('');
@@ -82,14 +70,9 @@ $(function () {
 
     $(document).on("click", ".stepComplete", function (event) {
         event.preventDefault();
-        console.log("hello");
         $(this).addClass("disabled");
         currentStep++;
-        console.log(currentStep);
-        console.log(totalSteps);
-        console.log(studentName);
         if (currentStep > totalSteps) {
-            console.log("Should emit socket")
             socket.emit("newCompleted", {
                 name: studentName
             });
@@ -134,6 +117,7 @@ $(function () {
             $("#comments").empty();
             $("#instructionsList").empty();
             $("#completed").empty();
+            completedArray = [];
         $.ajax({
             type: "GET",
             url: "api/" + data.moduleName + "/" + data.exerciseName
@@ -316,13 +300,16 @@ $(function () {
 
     socket.on("newComment", function (data) {
         var comment = $("<li class='list-group-item'>");
-        comment.append("<h5>" + data.name + " on step " + data.stepNum + "</h5>");
+        comment.append("<h5>" + data.name + " on Step " + data.stepNum + "</h5>");
         comment.append("<p>" + data.text + "</p>");
         $("#comments").append(comment);
     });
 
     socket.on("newCompleted", function (data) {
+        if (completedArray.indexOf(data.name) === -1) {
         $("#completed").append("<li class='list-group-item'>" + data.name + "</li>")
+        }
+        completedArray.push(data.name);
     });
 
     socket.on("newChat", function (data) {
