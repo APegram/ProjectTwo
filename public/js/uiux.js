@@ -4,8 +4,8 @@ $(function() {
 var currentUser;
 
 function updateTheme(theme) {
-  console.log(theme);
-  console.log(currentUser);
+  // console.log(theme);
+  // console.log(currentUser);
   $.ajax({
     method: "PUT",
     url: "/api/themes",
@@ -177,7 +177,6 @@ $("#themeGrey").click(function() {
 });
 
 function updateTheme(theme) {
-  console.log(currentUser);
   var userSettings = {
     theme: theme,
     email: currentUser.email

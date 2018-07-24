@@ -18,34 +18,37 @@ module.exports = function(app) {
   });
 
   app.get("/PTA", isAuthenticated, function(req, res){
-    if (req.user){
-      var handlebarsObject = {
-        layout: "inClass.handlebars",
-        chats: [],
-        comments: [],
+    if (req.user.admin){
+        var handlebarsObject = {
+          layout: "inClass.handlebars",
+          chats: [],
+          comments: [],
+        }
+        db.chats.findAll({}).then(function (results) {
+          for (i = 0; i < results.length; i++) {
+            handlebarsObject.chats.push({
+              text: results[i].text,
+              name: results[i].userName
+            });
+          }
+        })
+        db.comments.findAll({}).then(function (results) {
+          for (i = 0; i < results.length; i++) {
+            handlebarsObject.comments.push({
+              name: results[i].name,
+              text: results[i].text
+            });
+          }
+        })
+        res.render("instructor", handlebarsObject);
+      } else {
+        res.redirect("/STU");
       }
-      db.chats.findAll({}).then(function (results) {
-        for (i = 0; i < results.length; i++) {
-          handlebarsObject.chats.push({
-            text: results[i].text,
-            name: results[i].userName
-          });
-        }
-      })
-      db.comments.findAll({}).then(function (results) {
-        for (i = 0; i < results.length; i++) {
-          handlebarsObject.comments.push({
-            name: results[i].name,
-            text: results[i].text
-          });
-        }
-      })
-      res.render("instructor", handlebarsObject);
-    }
+
   });
   
   app.get("/STU", isAuthenticated, function(req, res){
-    if (req.user){
+    if (req.user.admin === false){
       var handlebarsObject = {
         layout: "inClass.handlebars",
         chats: [],
@@ -68,6 +71,8 @@ module.exports = function(app) {
         }
       })
       res.render("student", handlebarsObject);
+    } else if (req.user.admin === true){
+      res.redirect("/PTA");
     }
   });
 

@@ -15,7 +15,7 @@ $(function () {
         }
     }
     $.get("/api/user_data").then(function(data) {
-        console.log(data);
+        // console.log(data);
         studentName = data.displayName;
       });
       var elem = document.getElementById('chat');
