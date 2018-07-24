@@ -1,6 +1,7 @@
 $(function () {
   var socket = io();
   var clockStarted = false;
+  var startTime = 0;
   var time = 0;
   var currentUser;
 
@@ -245,11 +246,11 @@ $(function () {
 
     var endExercise = 10;
     socket.on("newTime", function (data) {
-      
-      if (clockStarted !== data.state) {
+      if (clockStarted !== data.state || startTime !== data.startTime) {
         console.log("js " + data.endExercise);
         endExercise = data.endExercise;
         clockStarted = data.state;
+        startTime = data.startTime
         console.log(endExercise);
         $(".countdown.multisize").empty();
         $(".countdown.multisize").circularCountdown({
@@ -535,13 +536,15 @@ $(function () {
         minuteTextMarginTop: 1,
         secondTextMarginTop: 2
       });
-      var emitInterval = setInterval(function () {
+      emitInterval = setInterval(function () {
         socket.emit("newTime", {
           endExercise: endExercise,
-          state: true
+          state: true,
+          startTime: time
         });
         console.log("emitted with " + endExercise);
       }, 1000);
+      emitInterval();
       setTimeout(function () {
         clearInterval(emitInterval)
         socket.emit("newTime", {
@@ -552,11 +555,15 @@ $(function () {
       }, time);
     });
 
+    var emitInterval;
+
     $("#endTimer").click(function () {
       endExercise = 10;
+      clearInterval(emitInterval)
       socket.emit("newTime", {
         endExercise: 10,
-        state: false
+        state: false,
+        isEnding: true
       })
       $(".countdown.multisize").empty();
       $(".countdown.multisize").circularCountdown({

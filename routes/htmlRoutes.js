@@ -29,8 +29,7 @@ module.exports = function(app) {
           for (i = 0; i < results.length; i++) {
             handlebarsObject.chats.push({
               text: results[i].text,
-              name: results[i].userName,
-              stepNum: results[i].stepNum
+              name: results[i].userName
             });
           }
         })
@@ -38,7 +37,8 @@ module.exports = function(app) {
           for (i = 0; i < results.length; i++) {
             handlebarsObject.comments.push({
               name: results[i].name,
-              text: results[i].text
+              text: results[i].text,
+              stepNum: results[i].stepNum
             });
           }
         })
