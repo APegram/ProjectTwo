@@ -4,7 +4,7 @@ $(document).ready(function () {
   // This file just does a GET request to figure out which user is logged in
   // and updates the HTML on the page
   $.get("/api/user_data").then(function (data) {
-    console.log(data)
+    // console.log(data)
     currentUser = data;
   }).then(function () {
     $("body").addClass(currentUser.theme)
@@ -21,8 +21,8 @@ $(document).ready(function () {
 });
 
 function updateTheme(theme) {
-  console.log(theme);
-  console.log(currentUser);
+  // console.log(theme);
+  // console.log(currentUser);
   $.ajax({
     method: "PUT",
     url: "/api/themes",
@@ -194,7 +194,6 @@ $("#themeGrey").click(function () {
 });
 
 function updateTheme(theme) {
-  console.log(currentUser);
   var userSettings = {
     theme: theme,
     email: currentUser.email,

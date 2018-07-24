@@ -363,7 +363,6 @@ module.exports = function (app) {
         password: newUser.password
       }
     }).then(function (result) {
-        console.log(result[1]);
         return res.send(result);
       
     });
@@ -372,7 +371,6 @@ module.exports = function (app) {
 
   // Verify Login
   app.post("/api/userVerify", passport.authenticate("local"), function (req, res) {
-    console.log("running verify");
     var userCredentials = req.body;
 
     db.userTable.findOne({
@@ -381,7 +379,6 @@ module.exports = function (app) {
       }
     }).then(function (results) {
       // console.log(results);
-      console.log(results.dataValues.admin);
       if (results.dataValues.admin === true) {
         return res.json("/PTA")
       }
@@ -412,7 +409,8 @@ module.exports = function (app) {
           github: req.user.github,
           instagram: req.user.instagram,
           facebook: req.user.facebook,
-          twitter: req.user.twitter
+          twitter: req.user.twitter,
+          admin: req.user.admin
           //portfolio: req.user.portfolio
         });
       }
@@ -420,7 +418,6 @@ module.exports = function (app) {
 
     //update themes for the user
     app.put("/api/themes", function(req, res) {
-      console.log(req.body)
       // Update takes in an object describing the properties we want to update, and
       // we use where to describe which objects we want to update
       db.userTable.update({

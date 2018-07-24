@@ -15,7 +15,7 @@ $("#reg-to-login").on("click", function (event) {
 
 function isEmail(email) {
     var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
-    console.log(email);
+    // console.log(email);
     return regex.test(email);
 };
 
@@ -109,6 +109,10 @@ $("#failed-login").on("click", function () {
     $("#bch-createAccount").removeClass("bch-hide");
 });
 
+$("#login-again").on("click", function (){
+    $("#login-userPassword").val("");
+});
+
 
 function uniqueUser(){
     event.preventDefault();
@@ -125,7 +129,7 @@ function uniqueUser(){
             var verified = pass1 === pass2;
             var goodEmail = isEmail(email);
 
-            console.log(verified, goodEmail);
+            // console.log(verified, goodEmail);
 
             if (!goodEmail) {
                 //toggle modal in order to tell the user the email is invalid or taken (in this case it is invalid).
@@ -146,14 +150,13 @@ function uniqueUser(){
                         type: "POST",
                         data: newUser,
                         success: function (data) {
-                            console.log(newUser);
-                            console.log(data);
+                            // console.log(newUser);
+                            // console.log(data);
                             if (data[1] === false) {
                                 //email in use, please choose another.
                                 return $("#Modal-emailTaken").modal("toggle");
                             };
 
-                            console.log("success");
                             $("#bch-createAccount").addClass("bch-hide");
                             $("#bch-loginMenu").removeClass("bch-hide");
                         }
@@ -186,9 +189,13 @@ function login(){
                 type: "POST",
                 data: userLogin
             }).then(function (data) {
-                console.log(data);
+                // console.log(data);
                 //serves which ever page the user has access too.
                 return window.location.replace(data);
-            });
+            }).catch(function(err){
+                if (err){
+                    $("#Modal-invalidLogin").modal("toggle");
+                }
+            })
         };
 };
