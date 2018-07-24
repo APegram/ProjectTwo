@@ -411,16 +411,13 @@ module.exports = function (app) {
         password: newUser.password
       }
     }).then(function (result) {
-      console.log(result[1]);
-      return res.send(result);
-
+        return res.send(result);
     });
   })
 
 
   // Verify Login
   app.post("/api/userVerify", passport.authenticate("local"), function (req, res) {
-    console.log("running verify");
     var userCredentials = req.body;
 
     db.userTable.findOne({
@@ -429,7 +426,6 @@ module.exports = function (app) {
       }
     }).then(function (results) {
       // console.log(results);
-      console.log(results.dataValues.admin);
       if (results.dataValues.admin === true) {
         return res.json("/PTA")
       }
@@ -440,40 +436,42 @@ module.exports = function (app) {
   })
 
 
-  // Route for getting some data about our user to be used client side
-  app.get("/api/user_data", function (req, res) {
-    if (!req.user) {
-      // The user is not logged in, send back an empty object
-      res.json({});
-    }
-    else {
-      // Otherwise send back the user's email and id
-      // Sending back a password, even a hashed password, isn't a good idea
-      res.json({
-        email: req.user.email,
-        id: req.user.id,
-        name: req.user.name,
-        displayName: req.user.userName,
-        theme: req.user.theme,
-        picture: req.user.picture,
-        linkedin: req.user.linkedin,
-        github: req.user.github,
-        instagram: req.user.instagram,
-        facebook: req.user.facebook,
-        twitter: req.user.twitter
-        //portfolio: req.user.portfolio
-      });
-    }
-  })
 
-  //update themes for the user
-  app.put("/api/themes", function (req, res) {
-    console.log(req.body)
-    // Update takes in an object describing the properties we want to update, and
-    // we use where to describe which objects we want to update
-    db.userTable.update({
-      theme: req.body.theme,
-    }, {
+    // Route for getting some data about our user to be used client side
+    app.get("/api/user_data", function(req, res) {
+      if (!req.user) {
+        // The user is not logged in, send back an empty object
+        res.json({});
+      }
+      else {
+        // Otherwise send back the user's email and id
+        // Sending back a password, even a hashed password, isn't a good idea
+        res.json({
+          email: req.user.email,
+          id: req.user.id,
+          name: req.user.name,
+          displayName: req.user.userName,
+          theme: req.user.theme,
+          picture: req.user.picture,
+          linkedin: req.user.linkedin,
+          github: req.user.github,
+          instagram: req.user.instagram,
+          facebook: req.user.facebook,
+          twitter: req.user.twitter,
+          admin: req.user.admin
+          //portfolio: req.user.portfolio
+        });
+      }
+    })
+
+    //update themes for the user
+    app.put("/api/themes", function(req, res) {
+      // Update takes in an object describing the properties we want to update, and
+      // we use where to describe which objects we want to update
+      db.userTable.update({
+        theme: req.body.theme,
+      }, {
+
         where: {
           email: req.body.email,
         }
