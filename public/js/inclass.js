@@ -76,6 +76,7 @@ $(function() {
     });
     $("#studentQuestion").val("");
   });
+});
 
   $(document).on("click", ".stepComplete", function(event) {
     event.preventDefault();
@@ -390,4 +391,3 @@ $(function() {
     $("#adminChat").append(paragraph);
     instelem.scrollTop = instelem.scrollHeight;
   });
-});
