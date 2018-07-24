@@ -312,7 +312,13 @@ $(function () {
           dayTextMarginTop: 1,
           hourTextMarginTop: 1,
           minuteTextMarginTop: 1,
-          secondTextMarginTop: 2
+          secondTextMarginTop: 2,
+
+          //Timer on finish function
+        onFinish:function(){
+          var bells = document.getElementById("bells");
+          bells.play();
+        }
         });
       }
     });
@@ -534,7 +540,13 @@ $(function () {
         dayTextMarginTop: 1,
         hourTextMarginTop: 1,
         minuteTextMarginTop: 1,
-        secondTextMarginTop: 2
+        secondTextMarginTop: 2,
+
+        //Timer on finish function
+      onFinish:function(){
+        var bells = document.getElementById("bells");
+        bells.play();
+      }
       });
       emitInterval = setInterval(function () {
         socket.emit("newTime", {
