@@ -1,24 +1,7 @@
-var currentUser;
-
-$(document).ready(function () {
-  // This file just does a GET request to figure out which user is logged in
-  // and updates the HTML on the page
-  $.get("/api/user_data").then(function (data) {
-    // console.log(data)
-    currentUser = data;
-  }).then(function () {
-    $("body").addClass(currentUser.theme)
-    $("#nameSettings").html("<strong>"+currentUser.name+"</strong>");
-    $("#emailSettings").html("<strong>"+currentUser.email+"</strong>")
-    if (currentUser.picture === null){
-      $("#imgSettings").attr("src", "https://mdbootstrap.com/img/Photos/Others/photo6.jpg")
-    } else {
-      $("#imgSettings").attr("src", currentUser.picture);
-    }
-    
-    // console.log(currentUser.theme);
-  });
+$(function() {
+  var socket = io();
 });
+var currentUser;
 
 function updateTheme(theme) {
   // console.log(theme);
@@ -36,23 +19,23 @@ $(".button-collapse").sideNav();
 var sideNavScrollbar = document.querySelector(".custom-scrollbar");
 Ps.initialize(sideNavScrollbar);
 
-$("#progressShow").click(function () {
+$("#progressShow").click(function() {
   $("#progressPopOut")
     .toggleClass("collapse")
     .addClass("slideInRight");
 });
-$("#in-class-toggle").click(function () {
+$("#in-class-toggle").click(function() {
   $("#in-class")
     .toggleClass("collapse")
     .addClass("slideInRight");
 });
-$("#in-structors-toggle").click(function () {
+$("#in-structors-toggle").click(function() {
   $("#in-structors")
     .toggleClass("collapse")
     .addClass("slideInRight");
 });
 
-$("#themeWhite").click(function () {
+$("#themeWhite").click(function() {
   $("body")
     .addClass("white-skin")
     .removeClass("black-skin")
@@ -66,7 +49,7 @@ $("#themeWhite").click(function () {
     .removeClass("grey-skin");
   updateTheme("white-skin");
 });
-$("#themeBlack").click(function () {
+$("#themeBlack").click(function() {
   $("body")
     .addClass("black-skin")
     .removeClass("white-skin")
@@ -78,9 +61,9 @@ $("#themeBlack").click(function () {
     .removeClass("indigo-skin")
     .removeClass("light-blue-skin")
     .removeClass("grey-skin");
-    updateTheme("black-skin");
+  updateTheme("black-skin");
 });
-$("#themeCyan").click(function () {
+$("#themeCyan").click(function() {
   $("body")
     .addClass("cyan-skin")
     .removeClass("white-skin")
@@ -92,9 +75,9 @@ $("#themeCyan").click(function () {
     .removeClass("indigo-skin")
     .removeClass("light-blue-skin")
     .removeClass("grey-skin");
-    updateTheme("cyan-skin");
+  updateTheme("cyan-skin");
 });
-$("#themeMDB").click(function () {
+$("#themeMDB").click(function() {
   $("body")
     .addClass("mdb-skin")
     .removeClass("white-skin")
@@ -106,9 +89,9 @@ $("#themeMDB").click(function () {
     .removeClass("indigo-skin")
     .removeClass("light-blue-skin")
     .removeClass("grey-skin");
-    updateTheme("mdb-skin");
+  updateTheme("mdb-skin");
 });
-$("#themeDeepPurple").click(function () {
+$("#themeDeepPurple").click(function() {
   $("body")
     .addClass("deep-purple-skin")
     .removeClass("white-skin")
@@ -120,9 +103,9 @@ $("#themeDeepPurple").click(function () {
     .removeClass("indigo-skin")
     .removeClass("light-blue-skin")
     .removeClass("grey-skin");
-    updateTheme("deep-purple-skin");
+  updateTheme("deep-purple-skin");
 });
-$("#themeNavyBlue").click(function () {
+$("#themeNavyBlue").click(function() {
   $("body")
     .addClass("navy-blue-skin")
     .removeClass("white-skin")
@@ -134,9 +117,9 @@ $("#themeNavyBlue").click(function () {
     .removeClass("indigo-skin")
     .removeClass("light-blue-skin")
     .removeClass("grey-skin");
-    updateTheme("navy-blue-skin");
+  updateTheme("navy-blue-skin");
 });
-$("#themePink").click(function () {
+$("#themePink").click(function() {
   $("body")
     .addClass("pink-skin")
     .removeClass("white-skin")
@@ -148,9 +131,9 @@ $("#themePink").click(function () {
     .removeClass("indigo-skin")
     .removeClass("light-blue-skin")
     .removeClass("grey-skin");
-    updateTheme("pink-skin");
+  updateTheme("pink-skin");
 });
-$("#themeIndigo").click(function () {
+$("#themeIndigo").click(function() {
   $("body")
     .addClass("indigo-skin")
     .removeClass("white-skin")
@@ -162,9 +145,9 @@ $("#themeIndigo").click(function () {
     .removeClass("pink-skin")
     .removeClass("light-blue-skin")
     .removeClass("grey-skin");
-    updateTheme("indigo-skin");
+  updateTheme("indigo-skin");
 });
-$("#themeLightBlue").click(function () {
+$("#themeLightBlue").click(function() {
   $("body")
     .addClass("light-blue-skin")
     .removeClass("white-skin")
@@ -176,9 +159,9 @@ $("#themeLightBlue").click(function () {
     .removeClass("pink-skin")
     .removeClass("indigo-skin")
     .removeClass("grey-skin");
-    updateTheme("light-blue-skin");
+  updateTheme("light-blue-skin");
 });
-$("#themeGrey").click(function () {
+$("#themeGrey").click(function() {
   $("body")
     .addClass("grey-skin")
     .removeClass("white-skin")
@@ -190,19 +173,19 @@ $("#themeGrey").click(function () {
     .removeClass("pink-skin")
     .removeClass("indigo-skin")
     .removeClass("light-blue-skin");
-    updateTheme("grey-skin");
+  updateTheme("grey-skin");
 });
 
 function updateTheme(theme) {
   var userSettings = {
     theme: theme,
-    email: currentUser.email,
-  }
+    email: currentUser.email
+  };
   $.ajax({
     method: "PUT",
     url: "/api/themes",
     data: userSettings
-  })
+  });
 }
 
 /* White
@@ -217,9 +200,30 @@ Light Blue
 Grey
  */
 
-$(document).ready(function () {
+$(document).ready(function() {
+  $(".mdb-select").material_select();
 
-  $('.mdb-select').material_select();
+  // This file just does a GET request to figure out which user is logged in
+  // and updates the HTML on the page
+  $.get("/api/user_data")
+    .then(function(data) {
+      currentUser = data;
+    })
+    .then(function() {
+      $("body").addClass(currentUser.theme);
+      $("#nameSettings").html("<strong>" + currentUser.name + "</strong>");
+      $("#emailSettings").html("<strong>" + currentUser.email + "</strong>");
+      if (currentUser.picture === null) {
+        $("#imgSettings").attr(
+          "src",
+          "https://mdbootstrap.com/img/Photos/Others/photo6.jpg"
+        );
+      } else {
+        $("#imgSettings").attr("src", currentUser.picture);
+      }
+
+      // console.log(currentUser.theme);
+    });
 
   // FIXME: Emoji Picker Initialization
   /*
@@ -237,9 +241,292 @@ $(document).ready(function () {
   });
   */
 
+  var endExercise = 10;
+  socket.on("newTime", function(data) {
+    endExercise = data.endExercise;
+  });
+  var hour = false;
+  $("#fiveMinTimer").click(function() {
+    today = "2018/07/23";
+    var currentTime = moment();
+    var theTimeIs = today + " " + currentTime.format("HH:mm:ss");
+    console.log(theTimeIs);
+    var nowPlus = moment().add(5, "minutes");
+    var exerciseEnd = today + " " + nowPlus.format("HH:mm:ss");
+    console.log(exerciseEnd);
+    endExercise = today + " " + nowPlus.format("HH:mm:ss");
+    console.log(endExercise);
+    hour = false;
+  });
+  $("#tenMinTimer").click(function() {
+    today = "2018/07/23";
+    var currentTime = moment();
+    var theTimeIs = today + " " + currentTime.format("HH:mm:ss");
+    console.log(theTimeIs);
+    var nowPlus = moment().add(10, "minutes");
+    var exerciseEnd = today + " " + nowPlus.format("HH:mm:ss");
+    console.log(exerciseEnd);
+    endExercise = today + " " + nowPlus.format("HH:mm:ss");
+    console.log(endExercise);
+    hour = false;
+  });
+  $("#fifteenMinTimer").click(function() {
+    today = "2018/07/23";
+    var currentTime = moment();
+    var theTimeIs = today + " " + currentTime.format("HH:mm:ss");
+    console.log(theTimeIs);
+    var nowPlus = moment().add(15, "minutes");
+    var exerciseEnd = today + " " + nowPlus.format("HH:mm:ss");
+    console.log(exerciseEnd);
+    endExercise = today + " " + nowPlus.format("HH:mm:ss");
+    console.log(endExercise);
+    hour = false;
+  });
+  $("#twentyMinTimer").click(function() {
+    today = "2018/07/23";
+    var currentTime = moment();
+    var theTimeIs = today + " " + currentTime.format("HH:mm:ss");
+    console.log(theTimeIs);
+    var nowPlus = moment().add(20, "minutes");
+    var exerciseEnd = today + " " + nowPlus.format("HH:mm:ss");
+    console.log(exerciseEnd);
+    endExercise = today + " " + nowPlus.format("HH:mm:ss");
+    console.log(endExercise);
+    hour = false;
+  });
+  $("#twentyfiveMinTimer").click(function() {
+    today = "2018/07/23";
+    var currentTime = moment();
+    var theTimeIs = today + " " + currentTime.format("HH:mm:ss");
+    console.log(theTimeIs);
+    var nowPlus = moment().add(25, "minutes");
+    var exerciseEnd = today + " " + nowPlus.format("HH:mm:ss");
+    console.log(exerciseEnd);
+    endExercise = today + " " + nowPlus.format("HH:mm:ss");
+    console.log(endExercise);
+    hour = false;
+  });
+  $("#thirtyMinTimer").click(function() {
+    today = "2018/07/23";
+    var currentTime = moment();
+    var theTimeIs = today + " " + currentTime.format("HH:mm:ss");
+    console.log(theTimeIs);
+    var nowPlus = moment().add(30, "minutes");
+    var exerciseEnd = today + " " + nowPlus.format("HH:mm:ss");
+    console.log(exerciseEnd);
+    endExercise = today + " " + nowPlus.format("HH:mm:ss");
+    console.log(endExercise);
+    hour = false;
+  });
+  $("#thirtyfiveMinTimer").click(function() {
+    today = "2018/07/23";
+    var currentTime = moment();
+    var theTimeIs = today + " " + currentTime.format("HH:mm:ss");
+    console.log(theTimeIs);
+    var nowPlus = moment().add(35, "minutes");
+    var exerciseEnd = today + " " + nowPlus.format("HH:mm:ss");
+    console.log(exerciseEnd);
+    endExercise = today + " " + nowPlus.format("HH:mm:ss");
+    console.log(endExercise);
+    hour = false;
+  });
+  $("#fortyMinTimer").click(function() {
+    today = "2018/07/23";
+    var currentTime = moment();
+    var theTimeIs = today + " " + currentTime.format("HH:mm:ss");
+    console.log(theTimeIs);
+    var nowPlus = moment().add(40, "minutes");
+    var exerciseEnd = today + " " + nowPlus.format("HH:mm:ss");
+    console.log(exerciseEnd);
+    endExercise = today + " " + nowPlus.format("HH:mm:ss");
+    console.log(endExercise);
+    hour = false;
+  });
+  $("#fortyfiveMinTimer").click(function() {
+    today = "2018/07/23";
+    var currentTime = moment();
+    var theTimeIs = today + " " + currentTime.format("HH:mm:ss");
+    console.log(theTimeIs);
+    var nowPlus = moment().add(45, "minutes");
+    var exerciseEnd = today + " " + nowPlus.format("HH:mm:ss");
+    console.log(exerciseEnd);
+    endExercise = today + " " + nowPlus.format("HH:mm:ss");
+    console.log(endExercise);
+    hour = false;
+  });
+  $("#fiftyMinTimer").click(function() {
+    today = "2018/07/23";
+    var currentTime = moment();
+    var theTimeIs = today + " " + currentTime.format("HH:mm:ss");
+    console.log(theTimeIs);
+    var nowPlus = moment().add(50, "minutes");
+    var exerciseEnd = today + " " + nowPlus.format("HH:mm:ss");
+    console.log(exerciseEnd);
+    endExercise = today + " " + nowPlus.format("HH:mm:ss");
+    console.log(endExercise);
+    hour = false;
+  });
+  $("#fiftyfiveMinTimer").click(function() {
+    today = "2018/07/23";
+    var currentTime = moment();
+    var theTimeIs = today + " " + currentTime.format("HH:mm:ss");
+    console.log(theTimeIs);
+    var nowPlus = moment().add(55, "minutes");
+    var exerciseEnd = today + " " + nowPlus.format("HH:mm:ss");
+    console.log(exerciseEnd);
+    endExercise = today + " " + nowPlus.format("HH:mm:ss");
+    console.log(endExercise);
+    hour = false;
+  });
+  $("#sixtyMinTimer").click(function() {
+    today = "2018/07/23";
+    var currentTime = moment();
+    var theTimeIs = today + " " + currentTime.format("HH:mm:ss");
+    console.log(theTimeIs);
+    var nowPlus = moment().add(60, "minutes");
+    var exerciseEnd = today + " " + nowPlus.format("HH:mm:ss");
+    console.log(exerciseEnd);
+    endExercise = today + " " + nowPlus.format("HH:mm:ss");
+    console.log(endExercise);
+    hour = false;
+  });
+
+  $("#timerActivate").click(function() {
+    $(".countdown.multisize").empty();
+    $(".countdown.multisize").circularCountdown({
+      startDate: "2018/07/21 10:00:00",
+      endDate: endExercise,
+      timeZone: -5, //Time zone of New York. Find timezone of your location and write here.
+
+      showDay: false,
+      showHour: hour,
+      showMinute: true,
+      showSecond: true,
+      //Margin between circles
+      margin: 7,
+
+      //Diameters
+      dayDiameter: 72,
+      hourDiameter: 42,
+      minuteDiameter: 72,
+      secondDiameter: 52,
+
+      //Circle BG width
+      dayBgWidth: 5,
+      hourBgWidth: -200,
+      minuteBgWidth: -200,
+      secondBgWidth: 2,
+
+      //Circle width
+      dayCircleWidth: 5,
+      hourCircleWidth: 2,
+      minuteCircleWidth: 2,
+      secondCircleWidth: 2,
+
+      //Circle color
+      dayCircleColor: "#91304e",
+      hourCircleColor: "#ffffff",
+      minuteCircleColor: "#ffffff",
+      secondCircleColor: "#ffffff",
+
+      //Counter font size
+      dayCounterFontSize: 24,
+      hourCounterFontSize: 16,
+      minuteCounterFontSize: 24,
+      secondCounterFontSize: 16,
+
+      //Counter font color
+      dayCounterFontColor: "#91304e",
+      hourCounterFontColor: "#ffffff",
+      minuteCounterFontColor: "#ffffff",
+      secondCounterFontColor: "#ffffff",
+
+      //Texts
+      dayText: "days",
+      hourText: "hours",
+      minuteText: "minutes",
+      secondText: "seconds",
+
+      //Texts top margin
+      dayTextMarginTop: 1,
+      hourTextMarginTop: 1,
+      minuteTextMarginTop: 1,
+      secondTextMarginTop: 2
+    });
+    socket.emit("newTime", {
+      endExercise: endExercise
+    });
+  });
+
+  $("#endTimer").click(function() {
+    endExercise = 10;
+    $(".countdown.multisize").empty();
+    $(".countdown.multisize").circularCountdown({
+      startDate: "2018/07/21 10:00:00",
+      endDate: endExercise,
+      timeZone: -5, //Time zone of New York. Find timezone of your location and write here.
+
+      showDay: false,
+      showHour: false,
+      showMinute: true,
+      showSecond: true,
+      //Margin between circles
+      margin: 7,
+
+      //Diameters
+      dayDiameter: 72,
+      hourDiameter: 42,
+      minuteDiameter: 72,
+      secondDiameter: 52,
+
+      //Circle BG width
+      dayBgWidth: 5,
+      hourBgWidth: -200,
+      minuteBgWidth: -200,
+      secondBgWidth: 2,
+
+      //Circle width
+      dayCircleWidth: 5,
+      hourCircleWidth: 2,
+      minuteCircleWidth: 2,
+      secondCircleWidth: 2,
+
+      //Circle color
+      dayCircleColor: "#91304e",
+      hourCircleColor: "#ffffff",
+      minuteCircleColor: "#ffffff",
+      secondCircleColor: "#ffffff",
+
+      //Counter font size
+      dayCounterFontSize: 24,
+      hourCounterFontSize: 16,
+      minuteCounterFontSize: 24,
+      secondCounterFontSize: 16,
+
+      //Counter font color
+      dayCounterFontColor: "#91304e",
+      hourCounterFontColor: "#ffffff",
+      minuteCounterFontColor: "#ffffff",
+      secondCounterFontColor: "#ffffff",
+
+      //Texts
+      dayText: "days",
+      hourText: "hours",
+      minuteText: "minutes",
+      secondText: "seconds",
+
+      //Texts top margin
+      dayTextMarginTop: 1,
+      hourTextMarginTop: 1,
+      minuteTextMarginTop: 1,
+      secondTextMarginTop: 2
+    });
+  });
+
   $(".countdown.multisize").circularCountdown({
     startDate: "2018/07/21 10:00:00",
-    endDate: "2018/07/21 17:30:00",
+    endDate: endExercise,
+
     timeZone: -5, //Time zone of New York. Find timezone of your location and write here.
 
     showDay: false,

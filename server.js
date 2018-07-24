@@ -36,7 +36,10 @@ io.on('connection', function (socket) {
   });
   socket.on("newChat", function(data) {
     io.emit("newChat", data);
-  })
+  });
+  socket.on("newTime", function(data) {
+    io.emit("newTime", data);
+  });
 });
 
 // Handlebars
