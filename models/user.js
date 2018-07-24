@@ -37,7 +37,7 @@ module.exports = function (sequelize, Sequelize) {
       defaultValue: false
     },
     picture: {
-      type: Sequelize.BLOB
+      type: Sequelize.STRING
     },
     about: {
       type: Sequelize.TEXT

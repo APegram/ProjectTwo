@@ -418,6 +418,20 @@ module.exports = function (app) {
       }
     })
 
+    //update themes for the user
+    app.put("/api/themes", function(req, res) {
+      console.log(req.body)
+      // Update takes in an object describing the properties we want to update, and
+      // we use where to describe which objects we want to update
+      db.userTable.update({
+        theme: req.body.theme,
+      }, {
+        where: {
+          email: req.body.email,
+        }
+      })
+    });
+
     //logs user out
     app.get("/logout", function(req, res){
       req.logout();
