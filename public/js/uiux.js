@@ -10,6 +10,12 @@ $(document).ready(function () {
     $("body").addClass(currentUser.theme)
     $("#nameSettings").html("<strong>"+currentUser.name+"</strong>");
     $("#emailSettings").html("<strong>"+currentUser.email+"</strong>")
+    if (currentUser.picture === null){
+      $("#imgSettings").attr("src", "https://mdbootstrap.com/img/Photos/Others/photo6.jpg")
+    } else {
+      $("#imgSettings").attr("src", currentUser.picture);
+    }
+    
     // console.log(currentUser.theme);
   });
 });
