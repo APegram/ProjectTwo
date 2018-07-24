@@ -29,7 +29,7 @@ module.exports = function (sequelize, Sequelize) {
     theme: {
       type: Sequelize.STRING,
       allowNull: false,
-      defaultValue: "Black"
+      defaultValue: "mdb-skin"
     },
     issue: {
       type: Sequelize.BOOLEAN,
@@ -37,7 +37,7 @@ module.exports = function (sequelize, Sequelize) {
       defaultValue: false
     },
     picture: {
-      type: Sequelize.BLOB
+      type: Sequelize.STRING
     },
     about: {
       type: Sequelize.TEXT
