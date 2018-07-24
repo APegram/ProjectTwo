@@ -1,28 +1,7 @@
-
 $(function() {
   var socket = io();
 });
 var currentUser;
-
-$(document).ready(function () {
-  // This file just does a GET request to figure out which user is logged in
-  // and updates the HTML on the page
-  $.get("/api/user_data").then(function (data) {
-    console.log(data)
-    currentUser = data;
-  }).then(function () {
-    $("body").addClass(currentUser.theme)
-    $("#nameSettings").html("<strong>"+currentUser.name+"</strong>");
-    $("#emailSettings").html("<strong>"+currentUser.email+"</strong>")
-    if (currentUser.picture === null){
-      $("#imgSettings").attr("src", "https://mdbootstrap.com/img/Photos/Others/photo6.jpg")
-    } else {
-      $("#imgSettings").attr("src", currentUser.picture);
-    }
-    
-    // console.log(currentUser.theme);
-  });
-});
 
 function updateTheme(theme) {
   console.log(theme);
@@ -40,23 +19,23 @@ $(".button-collapse").sideNav();
 var sideNavScrollbar = document.querySelector(".custom-scrollbar");
 Ps.initialize(sideNavScrollbar);
 
-$("#progressShow").click(function () {
+$("#progressShow").click(function() {
   $("#progressPopOut")
     .toggleClass("collapse")
     .addClass("slideInRight");
 });
-$("#in-class-toggle").click(function () {
+$("#in-class-toggle").click(function() {
   $("#in-class")
     .toggleClass("collapse")
     .addClass("slideInRight");
 });
-$("#in-structors-toggle").click(function () {
+$("#in-structors-toggle").click(function() {
   $("#in-structors")
     .toggleClass("collapse")
     .addClass("slideInRight");
 });
 
-$("#themeWhite").click(function () {
+$("#themeWhite").click(function() {
   $("body")
     .addClass("white-skin")
     .removeClass("black-skin")
@@ -70,7 +49,7 @@ $("#themeWhite").click(function () {
     .removeClass("grey-skin");
   updateTheme("white-skin");
 });
-$("#themeBlack").click(function () {
+$("#themeBlack").click(function() {
   $("body")
     .addClass("black-skin")
     .removeClass("white-skin")
@@ -82,9 +61,9 @@ $("#themeBlack").click(function () {
     .removeClass("indigo-skin")
     .removeClass("light-blue-skin")
     .removeClass("grey-skin");
-    updateTheme("black-skin");
+  updateTheme("black-skin");
 });
-$("#themeCyan").click(function () {
+$("#themeCyan").click(function() {
   $("body")
     .addClass("cyan-skin")
     .removeClass("white-skin")
@@ -96,9 +75,9 @@ $("#themeCyan").click(function () {
     .removeClass("indigo-skin")
     .removeClass("light-blue-skin")
     .removeClass("grey-skin");
-    updateTheme("cyan-skin");
+  updateTheme("cyan-skin");
 });
-$("#themeMDB").click(function () {
+$("#themeMDB").click(function() {
   $("body")
     .addClass("mdb-skin")
     .removeClass("white-skin")
@@ -110,9 +89,9 @@ $("#themeMDB").click(function () {
     .removeClass("indigo-skin")
     .removeClass("light-blue-skin")
     .removeClass("grey-skin");
-    updateTheme("mdb-skin");
+  updateTheme("mdb-skin");
 });
-$("#themeDeepPurple").click(function () {
+$("#themeDeepPurple").click(function() {
   $("body")
     .addClass("deep-purple-skin")
     .removeClass("white-skin")
@@ -124,9 +103,9 @@ $("#themeDeepPurple").click(function () {
     .removeClass("indigo-skin")
     .removeClass("light-blue-skin")
     .removeClass("grey-skin");
-    updateTheme("deep-purple-skin");
+  updateTheme("deep-purple-skin");
 });
-$("#themeNavyBlue").click(function () {
+$("#themeNavyBlue").click(function() {
   $("body")
     .addClass("navy-blue-skin")
     .removeClass("white-skin")
@@ -138,9 +117,9 @@ $("#themeNavyBlue").click(function () {
     .removeClass("indigo-skin")
     .removeClass("light-blue-skin")
     .removeClass("grey-skin");
-    updateTheme("navy-blue-skin");
+  updateTheme("navy-blue-skin");
 });
-$("#themePink").click(function () {
+$("#themePink").click(function() {
   $("body")
     .addClass("pink-skin")
     .removeClass("white-skin")
@@ -152,9 +131,9 @@ $("#themePink").click(function () {
     .removeClass("indigo-skin")
     .removeClass("light-blue-skin")
     .removeClass("grey-skin");
-    updateTheme("pink-skin");
+  updateTheme("pink-skin");
 });
-$("#themeIndigo").click(function () {
+$("#themeIndigo").click(function() {
   $("body")
     .addClass("indigo-skin")
     .removeClass("white-skin")
@@ -166,9 +145,9 @@ $("#themeIndigo").click(function () {
     .removeClass("pink-skin")
     .removeClass("light-blue-skin")
     .removeClass("grey-skin");
-    updateTheme("indigo-skin");
+  updateTheme("indigo-skin");
 });
-$("#themeLightBlue").click(function () {
+$("#themeLightBlue").click(function() {
   $("body")
     .addClass("light-blue-skin")
     .removeClass("white-skin")
@@ -180,9 +159,9 @@ $("#themeLightBlue").click(function () {
     .removeClass("pink-skin")
     .removeClass("indigo-skin")
     .removeClass("grey-skin");
-    updateTheme("light-blue-skin");
+  updateTheme("light-blue-skin");
 });
-$("#themeGrey").click(function () {
+$("#themeGrey").click(function() {
   $("body")
     .addClass("grey-skin")
     .removeClass("white-skin")
@@ -194,20 +173,20 @@ $("#themeGrey").click(function () {
     .removeClass("pink-skin")
     .removeClass("indigo-skin")
     .removeClass("light-blue-skin");
-    updateTheme("grey-skin");
+  updateTheme("grey-skin");
 });
 
 function updateTheme(theme) {
   console.log(currentUser);
   var userSettings = {
     theme: theme,
-    email: currentUser.email,
-  }
+    email: currentUser.email
+  };
   $.ajax({
     method: "PUT",
     url: "/api/themes",
     data: userSettings
-  })
+  });
 }
 
 /* White
@@ -225,10 +204,27 @@ Grey
 $(document).ready(function() {
   $(".mdb-select").material_select();
 
-$(document).ready(function () {
+  // This file just does a GET request to figure out which user is logged in
+  // and updates the HTML on the page
+  $.get("/api/user_data")
+    .then(function(data) {
+      currentUser = data;
+    })
+    .then(function() {
+      $("body").addClass(currentUser.theme);
+      $("#nameSettings").html("<strong>" + currentUser.name + "</strong>");
+      $("#emailSettings").html("<strong>" + currentUser.email + "</strong>");
+      if (currentUser.picture === null) {
+        $("#imgSettings").attr(
+          "src",
+          "https://mdbootstrap.com/img/Photos/Others/photo6.jpg"
+        );
+      } else {
+        $("#imgSettings").attr("src", currentUser.picture);
+      }
 
-  $('.mdb-select').material_select();
-
+      // console.log(currentUser.theme);
+    });
 
   // FIXME: Emoji Picker Initialization
   /*
@@ -531,7 +527,7 @@ $(document).ready(function () {
   $(".countdown.multisize").circularCountdown({
     startDate: "2018/07/21 10:00:00",
     endDate: endExercise,
-    
+
     timeZone: -5, //Time zone of New York. Find timezone of your location and write here.
 
     showDay: false,
