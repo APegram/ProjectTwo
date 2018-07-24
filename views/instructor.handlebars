@@ -107,6 +107,22 @@
             <p>Bootcamp Huddle</p>
         </div>
         <ul class="nav navbar-nav nav-flex-icons ml-auto">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fal fa-hourglass-end"></i>
+                    <span class="clearfix d-none d-sm-inline-block">Timer</span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#timerLauncher">
+                        <i class="fal fa-stopwatch"></i>
+                        <span class="clearfix d-none d-sm-inline-block">Initiate Timer...</span>
+                    </a>
+                    <a class="dropdown-item" href="#" id="endTimer">
+                        <i class="fas fa-stopwatch"></i>
+                        <span class="clearfix d-none d-sm-inline-block">End Timer</span>
+                    </a>
+                </div>
+            </li>
             <li class="nav-item active">
                 <a class="nav-link" href="#" id="progressShow">
                     <i class="fas fa-bolt ml-1"></i>
@@ -358,10 +374,14 @@
                                                 <div class="chat" style="height: 140px; overflow: scroll;">
                                                     <!-- In-structors messages will be appended here -->
                                                     {{#each chats}}
-                                                    <div class="chip chip-md peach-gradient darken-2 white-text">
-                                                        <img src="./img/images/einstein.jpg" alt={{name}}> {{name}}
-                                                    </div>
-                                                    <span>{{text}}</span>
+                                                    <p>
+                                                        <span>
+                                                            <div class="chip chip-md peach-gradient darken-2 white-text">
+                                                                <img src="./img/images/einstein.jpg" alt={{name}}> {{name}}
+                                                            </div>
+                                                            <span>{{text}}</span>
+                                                        </span>
+                                                    </p>
                                                     {{/each}}
                                                 </div>
                                                 <!-- /All messages area -->
@@ -422,7 +442,7 @@
                     <div class="dropdown">
 
                         <!--Trigger-->
-                        <button class="btn btn-block btn-primary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true"
+                        <button class="btn btn-block morpheus-den-gradient dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true"
                             aria-expanded="false">Choose Module</button>
 
 
@@ -446,21 +466,14 @@
                             <a class="dropdown-item selectModule" href="#" data-title="module15">15: Sequelize</a>
                         </div>
                     </div>
+                    <br>
                     <!--/Dropdown primary-->
                     <div class="dropdown">
-                        <button class="btn btn-block btn-primary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true"
+                        <button class="btn btn-block near-moon-gradient dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true"
                             aria-expanded="false">Exercise</button>
                         <div class="dropdown-menu dropdown-primary" id="exercises">
                         </div>
-
                     </div>
-                    <!--/Blue select-->
-                </div>
-                <div class="md-form form-sm mb-4">
-                    <!--Blue select-->
-                    <select id="exercises" class="mdb-select colorful-select dropdown-primary">
-                    </select>
-                    <label>Exercise</label>
                     <!--/Blue select-->
                 </div>
             </div>
@@ -475,6 +488,73 @@
     </div>
 </div>
 <!-- /Modal: Exercise Launcher -->
+<!-- Modal: Timer Launcher -->
+<div class="modal fade right" id="timerLauncher" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-full-height modal-right modal-notify modal-primary" role="document">
+        <div class="modal-content">
+            <!--Header-->
+            <div class="modal-header tempting-azure-gradient">
+                <p class="heading lead">Launch Timer
+                </p>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true" class="white-text">×</span>
+                </button>
+            </div>
+            <!--Body-->
+            <div class="modal-body">
+                <div class="text-center">
+                    <i class="fal fa-hourglass-end fa-4x mb-3 animated rotateIn"></i>
+                    <p>
+                        <strong>Exercise Timer</strong>
+                    </p>
+                    <p>Define the parameters for the exercise length.
+                        <strong>
+                    </p>
+                    <p>
+                        </strong>Press "Launch" to begin the timer for the class.</strong>
+                    </p>
+                </div>
+                <hr>
+                <div class="dropdown">
+
+                    <!--Trigger-->
+                    <button class="btn btn-block night-fade-gradient dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false">Exercise Length</button>
+
+
+                    <!--Menu-->
+                    <div class="dropdown-menu dropdown-primary">
+
+                        <a class="dropdown-item" href="#" id="fiveMinTimer">05:00</a>
+                        <a class="dropdown-item" href="#" id="tenMinTimer">10:00</a>
+                        <a class="dropdown-item" href="#" id="fifteenMinTimer">15:00</a>
+                        <a class="dropdown-item" href="#" id="twentyMinTimer">20:00</a>
+                        <a class="dropdown-item" href="#" id="twentyfiveMinTimer">25:00</a>
+                        <a class="dropdown-item" href="#" id="thirtyMinTimer">30:00</a>
+                        <a class="dropdown-item" href="#" id="thirtyfiveMinTimer">35:00</a>
+                        <a class="dropdown-item" href="#" id="fortyMinTimer">40:00</a>
+                        <a class="dropdown-item" href="#" id="fortyfiveMinTimer">45:00</a>
+                        <a class="dropdown-item" href="#" id="fiftyMinTimer">50:00</a>
+                        <a class="dropdown-item" href="#" id="fiftyfiveMinTimer">55:00</a>
+                        <a class="dropdown-item" href="#" id="sixtyMinTimer">60:00</a>
+                    </div>
+                </div>
+                <!--/Dropdown primary-->
+                <!--/Blue select-->
+            </div>
+            <!--Footer-->
+            <div class="modal-footer justify-content-center">
+                <a type="button" class="btn btn-primary waves-effect waves-light" id="timerActivate" data-dismiss="modal">Launch
+                    <i class="fas fa-plane-departure ml-1"></i>
+                </a>
+                <a type="button" class="btn btn-outline-primary waves-effect" data-dismiss="modal">Cancel</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /Modal: Timer Launcher -->
+
+
 <!-- Modal: Homework Launcher -->
 <div class="modal fade left" id="homeworkLauncher" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-full-height modal-left modal-notify modal-primary" role="document">
