@@ -262,6 +262,12 @@
                                             <div class="card-body mb-1 rgba-grey-light">
                                                 <!-- Students that have questions will appear here -->
                                                 <ul id="comments" class="list-group list-group-flush">
+                                                    {{#each comments}}
+                                                    <li class="list-group-item">
+                                                        <h5>{{name}} on step {{stepNum}}</h5>
+                                                        <p>{{text}}</p>
+                                                    </li>
+                                                    {{/each}}
                                                 </ul>
                                             </div>
                                         </div>
@@ -371,24 +377,14 @@
                                             <!-- Team Chat Box -->
                                             <div class="elegant-color-dark text-white py-5 px-4 my-3">
                                                 <!-- All messages area -->
-                                                <div class="chat" style="height: 140px; overflow: scroll;">
+                                                <div id="adminChat" style="height: 140px; overflow: scroll;">
                                                     <!-- In-structors messages will be appended here -->
-                                                    {{#each chats}}
-                                                    <p>
-                                                        <span>
-                                                            <div class="chip chip-md peach-gradient darken-2 white-text">
-                                                                <img src="./img/images/einstein.jpg" alt={{name}}> {{name}}
-                                                            </div>
-                                                            <span>{{text}}</span>
-                                                        </span>
-                                                    </p>
-                                                    {{/each}}
                                                 </div>
                                                 <!-- /All messages area -->
                                                 <!-- Message entry area -->
                                                 <div>
                                                     <div class="md-form primary-textarea active-primary-textarea">
-                                                        <textarea type="text" id="form22" class="md-textarea form-control" rows="1"></textarea>
+                                                        <textarea type="text" id="adminChats" class="md-textarea form-control" rows="1"></textarea>
                                                         <label for="form22">Type your message...</label>
                                                     </div>
                                                 </div>
@@ -442,8 +438,8 @@
                     <div class="dropdown">
 
                         <!--Trigger-->
-                        <button class="btn btn-block morpheus-den-gradient dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true"
-                            aria-expanded="false">Choose Module</button>
+                        <button class="btn btn-block morpheus-den-gradient dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">Choose Module</button>
 
 
                         <!--Menu-->
@@ -469,8 +465,8 @@
                     <br>
                     <!--/Dropdown primary-->
                     <div class="dropdown">
-                        <button class="btn btn-block near-moon-gradient dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true"
-                            aria-expanded="false">Exercise</button>
+                        <button class="btn btn-block near-moon-gradient dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">Exercise</button>
                         <div class="dropdown-menu dropdown-primary" id="exercises">
                         </div>
                     </div>
@@ -518,8 +514,8 @@
                 <div class="dropdown">
 
                     <!--Trigger-->
-                    <button class="btn btn-block night-fade-gradient dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true"
-                        aria-expanded="false">Exercise Length</button>
+                    <button class="btn btn-block night-fade-gradient dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">Exercise Length</button>
 
 
                     <!--Menu-->

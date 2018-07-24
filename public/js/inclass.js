@@ -64,6 +64,7 @@ $(function () {
 
     $("#createComment").on("click", function (event) {
         event.preventDefault();
+        $("#studentQuestion").val('');
         var newComment = {
             name: studentName,
             text: $("#studentQuestion").val(),
@@ -110,7 +111,20 @@ $(function () {
             socket.emit("newChat", newMessage);
             $("#chats").val('');
         }
-    })
+    });
+
+    $("#adminChats").keyup(function (event) {
+        event.preventDefault();
+        var keycode = (event.keyCode ? event.keyCode : event.which);
+        if (keycode == "13") {
+            var newMessage = {
+                text: $("#adminChats").val().trim(),
+                userName: studentName
+            }
+            socket.emit("newAdminChat", newMessage);
+            $("#adminChats").val('');
+        }
+    });
 
     socket.on("newExercise", function (data) {
         if (data.exerciseName != exerciseName) {
@@ -320,6 +334,18 @@ $(function () {
         $(outerSpan).append(chatSpan);
         $(paragraph).append(outerSpan);
         $("#chat").append(paragraph);
+        elem.scrollTop = elem.scrollHeight;
+    });
+    socket.on("newAdminChat", function (data) {
+        var paragraph = $("<p>");
+        var outerSpan = $("<span>")
+        var chatDiv = $("<div class='chip chip-md peach-gradient darken-2 white-text'>")
+        var chatSpan = $("<span>" + data.text + "</span>");
+        chatDiv.append("<img src='../img/images/einstein.jpg' alt='" + data.userName + "'>" + data.userName);
+        $(outerSpan).append(chatDiv);
+        $(outerSpan).append(chatSpan);
+        $(paragraph).append(outerSpan);
+        $("#adminChat").append(paragraph);
         elem.scrollTop = elem.scrollHeight;
     });
 });
