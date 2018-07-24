@@ -1,3 +1,6 @@
+$(function() {
+  var socket = io();
+});
 // SideNav Button Initialization
 $(".button-collapse").sideNav();
 // SideNav Scrollbar Initialization
@@ -164,8 +167,7 @@ Grey
  */
 
 $(document).ready(function() {
-
-  $('.mdb-select').material_select();
+  $(".mdb-select").material_select();
 
   // FIXME: Emoji Picker Initialization
   /*
@@ -183,64 +185,346 @@ $(document).ready(function() {
   });
   */
 
-  $(".countdown.multisize").circularCountdown({
-    startDate:"2018/07/21 10:00:00",
-    endDate:"2018/07/21 17:30:00",
-    timeZone:-5,	//Time zone of New York. Find timezone of your location and write here.
+  var endExercise = 10;
+  socket.on("newTime", function(data) {
+    endExercise = data.endExercise;
+  });
+  var hour = false;
+  $("#fiveMinTimer").click(function() {
+    today = "2018/07/23";
+    var currentTime = moment();
+    var theTimeIs = today + " " + currentTime.format("HH:mm:ss");
+    console.log(theTimeIs);
+    var nowPlus = moment().add(5, "minutes");
+    var exerciseEnd = today + " " + nowPlus.format("HH:mm:ss");
+    console.log(exerciseEnd);
+    endExercise = today + " " + nowPlus.format("HH:mm:ss");
+    console.log(endExercise);
+    hour = false;
+  });
+  $("#tenMinTimer").click(function() {
+    today = "2018/07/23";
+    var currentTime = moment();
+    var theTimeIs = today + " " + currentTime.format("HH:mm:ss");
+    console.log(theTimeIs);
+    var nowPlus = moment().add(10, "minutes");
+    var exerciseEnd = today + " " + nowPlus.format("HH:mm:ss");
+    console.log(exerciseEnd);
+    endExercise = today + " " + nowPlus.format("HH:mm:ss");
+    console.log(endExercise);
+    hour = false;
+  });
+  $("#fifteenMinTimer").click(function() {
+    today = "2018/07/23";
+    var currentTime = moment();
+    var theTimeIs = today + " " + currentTime.format("HH:mm:ss");
+    console.log(theTimeIs);
+    var nowPlus = moment().add(15, "minutes");
+    var exerciseEnd = today + " " + nowPlus.format("HH:mm:ss");
+    console.log(exerciseEnd);
+    endExercise = today + " " + nowPlus.format("HH:mm:ss");
+    console.log(endExercise);
+    hour = false;
+  });
+  $("#twentyMinTimer").click(function() {
+    today = "2018/07/23";
+    var currentTime = moment();
+    var theTimeIs = today + " " + currentTime.format("HH:mm:ss");
+    console.log(theTimeIs);
+    var nowPlus = moment().add(20, "minutes");
+    var exerciseEnd = today + " " + nowPlus.format("HH:mm:ss");
+    console.log(exerciseEnd);
+    endExercise = today + " " + nowPlus.format("HH:mm:ss");
+    console.log(endExercise);
+    hour = false;
+  });
+  $("#twentyfiveMinTimer").click(function() {
+    today = "2018/07/23";
+    var currentTime = moment();
+    var theTimeIs = today + " " + currentTime.format("HH:mm:ss");
+    console.log(theTimeIs);
+    var nowPlus = moment().add(25, "minutes");
+    var exerciseEnd = today + " " + nowPlus.format("HH:mm:ss");
+    console.log(exerciseEnd);
+    endExercise = today + " " + nowPlus.format("HH:mm:ss");
+    console.log(endExercise);
+    hour = false;
+  });
+  $("#thirtyMinTimer").click(function() {
+    today = "2018/07/23";
+    var currentTime = moment();
+    var theTimeIs = today + " " + currentTime.format("HH:mm:ss");
+    console.log(theTimeIs);
+    var nowPlus = moment().add(30, "minutes");
+    var exerciseEnd = today + " " + nowPlus.format("HH:mm:ss");
+    console.log(exerciseEnd);
+    endExercise = today + " " + nowPlus.format("HH:mm:ss");
+    console.log(endExercise);
+    hour = false;
+  });
+  $("#thirtyfiveMinTimer").click(function() {
+    today = "2018/07/23";
+    var currentTime = moment();
+    var theTimeIs = today + " " + currentTime.format("HH:mm:ss");
+    console.log(theTimeIs);
+    var nowPlus = moment().add(35, "minutes");
+    var exerciseEnd = today + " " + nowPlus.format("HH:mm:ss");
+    console.log(exerciseEnd);
+    endExercise = today + " " + nowPlus.format("HH:mm:ss");
+    console.log(endExercise);
+    hour = false;
+  });
+  $("#fortyMinTimer").click(function() {
+    today = "2018/07/23";
+    var currentTime = moment();
+    var theTimeIs = today + " " + currentTime.format("HH:mm:ss");
+    console.log(theTimeIs);
+    var nowPlus = moment().add(40, "minutes");
+    var exerciseEnd = today + " " + nowPlus.format("HH:mm:ss");
+    console.log(exerciseEnd);
+    endExercise = today + " " + nowPlus.format("HH:mm:ss");
+    console.log(endExercise);
+    hour = false;
+  });
+  $("#fortyfiveMinTimer").click(function() {
+    today = "2018/07/23";
+    var currentTime = moment();
+    var theTimeIs = today + " " + currentTime.format("HH:mm:ss");
+    console.log(theTimeIs);
+    var nowPlus = moment().add(45, "minutes");
+    var exerciseEnd = today + " " + nowPlus.format("HH:mm:ss");
+    console.log(exerciseEnd);
+    endExercise = today + " " + nowPlus.format("HH:mm:ss");
+    console.log(endExercise);
+    hour = false;
+  });
+  $("#fiftyMinTimer").click(function() {
+    today = "2018/07/23";
+    var currentTime = moment();
+    var theTimeIs = today + " " + currentTime.format("HH:mm:ss");
+    console.log(theTimeIs);
+    var nowPlus = moment().add(50, "minutes");
+    var exerciseEnd = today + " " + nowPlus.format("HH:mm:ss");
+    console.log(exerciseEnd);
+    endExercise = today + " " + nowPlus.format("HH:mm:ss");
+    console.log(endExercise);
+    hour = false;
+  });
+  $("#fiftyfiveMinTimer").click(function() {
+    today = "2018/07/23";
+    var currentTime = moment();
+    var theTimeIs = today + " " + currentTime.format("HH:mm:ss");
+    console.log(theTimeIs);
+    var nowPlus = moment().add(55, "minutes");
+    var exerciseEnd = today + " " + nowPlus.format("HH:mm:ss");
+    console.log(exerciseEnd);
+    endExercise = today + " " + nowPlus.format("HH:mm:ss");
+    console.log(endExercise);
+    hour = false;
+  });
+  $("#sixtyMinTimer").click(function() {
+    today = "2018/07/23";
+    var currentTime = moment();
+    var theTimeIs = today + " " + currentTime.format("HH:mm:ss");
+    console.log(theTimeIs);
+    var nowPlus = moment().add(60, "minutes");
+    var exerciseEnd = today + " " + nowPlus.format("HH:mm:ss");
+    console.log(exerciseEnd);
+    endExercise = today + " " + nowPlus.format("HH:mm:ss");
+    console.log(endExercise);
+    hour = false;
+  });
 
-      showDay:false,
-      showHour:false,
-      showMinute:true,
-      showSecond:true,
+  $("#timerActivate").click(function() {
+    $(".countdown.multisize").empty();
+    $(".countdown.multisize").circularCountdown({
+      startDate: "2018/07/21 10:00:00",
+      endDate: endExercise,
+      timeZone: -5, //Time zone of New York. Find timezone of your location and write here.
+
+      showDay: false,
+      showHour: hour,
+      showMinute: true,
+      showSecond: true,
+      //Margin between circles
+      margin: 7,
+
+      //Diameters
+      dayDiameter: 72,
+      hourDiameter: 42,
+      minuteDiameter: 72,
+      secondDiameter: 52,
+
+      //Circle BG width
+      dayBgWidth: 5,
+      hourBgWidth: -200,
+      minuteBgWidth: -200,
+      secondBgWidth: 2,
+
+      //Circle width
+      dayCircleWidth: 5,
+      hourCircleWidth: 2,
+      minuteCircleWidth: 2,
+      secondCircleWidth: 2,
+
+      //Circle color
+      dayCircleColor: "#91304e",
+      hourCircleColor: "#ffffff",
+      minuteCircleColor: "#ffffff",
+      secondCircleColor: "#ffffff",
+
+      //Counter font size
+      dayCounterFontSize: 24,
+      hourCounterFontSize: 16,
+      minuteCounterFontSize: 24,
+      secondCounterFontSize: 16,
+
+      //Counter font color
+      dayCounterFontColor: "#91304e",
+      hourCounterFontColor: "#ffffff",
+      minuteCounterFontColor: "#ffffff",
+      secondCounterFontColor: "#ffffff",
+
+      //Texts
+      dayText: "days",
+      hourText: "hours",
+      minuteText: "minutes",
+      secondText: "seconds",
+
+      //Texts top margin
+      dayTextMarginTop: 1,
+      hourTextMarginTop: 1,
+      minuteTextMarginTop: 1,
+      secondTextMarginTop: 2
+    });
+    socket.emit("newTime", {
+      endExercise: endExercise
+    });
+  });
+
+  $("#endTimer").click(function() {
+    endExercise = 10;
+    $(".countdown.multisize").empty();
+    $(".countdown.multisize").circularCountdown({
+      startDate: "2018/07/21 10:00:00",
+      endDate: endExercise,
+      timeZone: -5, //Time zone of New York. Find timezone of your location and write here.
+
+      showDay: false,
+      showHour: false,
+      showMinute: true,
+      showSecond: true,
+      //Margin between circles
+      margin: 7,
+
+      //Diameters
+      dayDiameter: 72,
+      hourDiameter: 42,
+      minuteDiameter: 72,
+      secondDiameter: 52,
+
+      //Circle BG width
+      dayBgWidth: 5,
+      hourBgWidth: -200,
+      minuteBgWidth: -200,
+      secondBgWidth: 2,
+
+      //Circle width
+      dayCircleWidth: 5,
+      hourCircleWidth: 2,
+      minuteCircleWidth: 2,
+      secondCircleWidth: 2,
+
+      //Circle color
+      dayCircleColor: "#91304e",
+      hourCircleColor: "#ffffff",
+      minuteCircleColor: "#ffffff",
+      secondCircleColor: "#ffffff",
+
+      //Counter font size
+      dayCounterFontSize: 24,
+      hourCounterFontSize: 16,
+      minuteCounterFontSize: 24,
+      secondCounterFontSize: 16,
+
+      //Counter font color
+      dayCounterFontColor: "#91304e",
+      hourCounterFontColor: "#ffffff",
+      minuteCounterFontColor: "#ffffff",
+      secondCounterFontColor: "#ffffff",
+
+      //Texts
+      dayText: "days",
+      hourText: "hours",
+      minuteText: "minutes",
+      secondText: "seconds",
+
+      //Texts top margin
+      dayTextMarginTop: 1,
+      hourTextMarginTop: 1,
+      minuteTextMarginTop: 1,
+      secondTextMarginTop: 2
+    });
+  });
+
+  $(".countdown.multisize").circularCountdown({
+    startDate: "2018/07/21 10:00:00",
+    endDate: endExercise,
+    timeZone: -5, //Time zone of New York. Find timezone of your location and write here.
+
+    showDay: false,
+    showHour: false,
+    showMinute: true,
+    showSecond: true,
     //Margin between circles
-    margin:7,
+    margin: 7,
 
     //Diameters
-    dayDiameter:72,
-    hourDiameter:42,
-    minuteDiameter:72,
-    secondDiameter:52,
+    dayDiameter: 72,
+    hourDiameter: 42,
+    minuteDiameter: 72,
+    secondDiameter: 52,
 
     //Circle BG width
-    dayBgWidth:5,
-    hourBgWidth:-200,
-    minuteBgWidth:-200,
-    secondBgWidth:2,
+    dayBgWidth: 5,
+    hourBgWidth: -200,
+    minuteBgWidth: -200,
+    secondBgWidth: 2,
 
     //Circle width
-    dayCircleWidth:5,
-    hourCircleWidth:2,
-    minuteCircleWidth:2,
-    secondCircleWidth:2,
+    dayCircleWidth: 5,
+    hourCircleWidth: 2,
+    minuteCircleWidth: 2,
+    secondCircleWidth: 2,
 
     //Circle color
-    dayCircleColor:"#91304e",
-    hourCircleColor:"#ffffff",
-    minuteCircleColor:"#ffffff",
-    secondCircleColor:"#ffffff",
+    dayCircleColor: "#91304e",
+    hourCircleColor: "#ffffff",
+    minuteCircleColor: "#ffffff",
+    secondCircleColor: "#ffffff",
 
     //Counter font size
-    dayCounterFontSize:24,
-    hourCounterFontSize:16,
-    minuteCounterFontSize:24,
-    secondCounterFontSize:16,
+    dayCounterFontSize: 24,
+    hourCounterFontSize: 16,
+    minuteCounterFontSize: 24,
+    secondCounterFontSize: 16,
 
     //Counter font color
-    dayCounterFontColor:"#91304e",
-    hourCounterFontColor:"#ffffff",
-    minuteCounterFontColor:"#ffffff",
-    secondCounterFontColor:"#ffffff",
+    dayCounterFontColor: "#91304e",
+    hourCounterFontColor: "#ffffff",
+    minuteCounterFontColor: "#ffffff",
+    secondCounterFontColor: "#ffffff",
 
     //Texts
-    dayText:"days",
-    hourText:"hours",
-    minuteText:"minutes",
-    secondText:"seconds",
+    dayText: "days",
+    hourText: "hours",
+    minuteText: "minutes",
+    secondText: "seconds",
 
     //Texts top margin
-    dayTextMarginTop:1,
-    hourTextMarginTop:1,
-    minuteTextMarginTop:1,
-    secondTextMarginTop:2
+    dayTextMarginTop: 1,
+    hourTextMarginTop: 1,
+    minuteTextMarginTop: 1,
+    secondTextMarginTop: 2
   });
 });
