@@ -3,13 +3,13 @@ var passport = require("../config/passport")
 
 module.exports = function (app) {
   app.get("/api", function (req, res) {
-    db.moduleIndex.findAll({}).then(function(results) {
+    db.moduleIndex.findAll({}).then(function (results) {
       res.send(results);
     })
   });
 
   app.get("/api/module1", function (req, res) {
-    db.module1.findAll({}).then(function(results) {
+    db.module1.findAll({}).then(function (results) {
       res.send(results);
     });
   });
@@ -34,7 +34,10 @@ module.exports = function (app) {
       }
     }).then(function (results) {
       res.json(results);
-      db.comments.destroy({});
+      db.comments.destroy({
+        where: {},
+        truncate: true
+      });
     });
   });
 
@@ -57,7 +60,7 @@ module.exports = function (app) {
   });
 
   app.get("/api/module2", function (req, res) {
-    db.module2.findAll({}).then(function(results) {
+    db.module2.findAll({}).then(function (results) {
       res.send(results);
     });
   });
@@ -70,12 +73,15 @@ module.exports = function (app) {
       }
     }).then(function (results) {
       res.json(results);
-      db.comments.destroy({});
+      db.comments.destroy({
+        where: {},
+        truncate: true
+      });
     });
   });
 
   app.get("/api/module3", function (req, res) {
-    db.module3.findAll({}).then(function(results) {
+    db.module3.findAll({}).then(function (results) {
       res.send(results);
     });
   });
@@ -88,12 +94,15 @@ module.exports = function (app) {
       }
     }).then(function (results) {
       res.json(results);
-      db.comments.destroy({});
+      db.comments.destroy({
+        where: {},
+        truncate: true
+      });
     });
   });
 
   app.get("/api/module4", function (req, res) {
-    db.module4.findAll({}).then(function(results) {
+    db.module4.findAll({}).then(function (results) {
       res.send(results);
     });
   });
@@ -106,12 +115,15 @@ module.exports = function (app) {
       }
     }).then(function (results) {
       res.json(results);
-      db.comments.destroy({});
+      db.comments.destroy({
+        where: {},
+        truncate: true
+      });
     });
   });
 
   app.get("/api/module5", function (req, res) {
-    db.module5.findAll({}).then(function(results) {
+    db.module5.findAll({}).then(function (results) {
       res.send(results);
     });
   });
@@ -124,12 +136,15 @@ module.exports = function (app) {
       }
     }).then(function (results) {
       res.json(results);
-      db.comments.destroy({});
+      db.comments.destroy({
+        where: {},
+        truncate: true
+      });
     });
   });
 
   app.get("/api/module6", function (req, res) {
-    db.module6.findAll({}).then(function(results) {
+    db.module6.findAll({}).then(function (results) {
       res.send(results);
     });
   });
@@ -142,12 +157,15 @@ module.exports = function (app) {
       }
     }).then(function (results) {
       res.json(results);
-      db.comments.destroy({});
+      db.comments.destroy({
+        where: {},
+        truncate: true
+      });
     });
   });
 
   app.get("/api/module7", function (req, res) {
-    db.module7.findAll({}).then(function(results) {
+    db.module7.findAll({}).then(function (results) {
       res.send(results);
     });
   });
@@ -160,12 +178,15 @@ module.exports = function (app) {
       }
     }).then(function (results) {
       res.json(results);
-      db.comments.destroy({});
+      db.comments.destroy({
+        where: {},
+        truncate: true
+      });
     });
   });
 
   app.get("/api/module8", function (req, res) {
-    db.module8.findAll({}).then(function(results) {
+    db.module8.findAll({}).then(function (results) {
       res.send(results);
     });
   });
@@ -178,12 +199,15 @@ module.exports = function (app) {
       }
     }).then(function (results) {
       res.json(results);
-      db.comments.destroy({});
+      db.comments.destroy({
+        where: {},
+        truncate: true
+      });
     });
   });
 
   app.get("/api/module9", function (req, res) {
-    db.module9.findAll({}).then(function(results) {
+    db.module9.findAll({}).then(function (results) {
       res.send(results);
     });
   });
@@ -196,12 +220,15 @@ module.exports = function (app) {
       }
     }).then(function (results) {
       res.json(results);
-      db.comments.destroy({});
+      db.comments.destroy({
+        where: {},
+        truncate: true
+      });
     });
   });
 
   app.get("/api/module10", function (req, res) {
-    db.module10.findAll({}).then(function(results) {
+    db.module10.findAll({}).then(function (results) {
       res.send(results);
     });
   });
@@ -214,12 +241,15 @@ module.exports = function (app) {
       }
     }).then(function (results) {
       res.json(results);
-      db.comments.destroy({});
+      db.comments.destroy({
+        where: {},
+        truncate: true
+      });
     });
   });
 
   app.get("/api/module11", function (req, res) {
-    db.module11.findAll({}).then(function(results) {
+    db.module11.findAll({}).then(function (results) {
       res.send(results);
     });
   });
@@ -232,12 +262,15 @@ module.exports = function (app) {
       }
     }).then(function (results) {
       res.json(results);
-      db.comments.destroy({});
+      db.comments.destroy({
+        where: {},
+        truncate: true
+      });
     });
   });
 
   app.get("/api/module12", function (req, res) {
-    db.module12.findAll({}).then(function(results) {
+    db.module12.findAll({}).then(function (results) {
       res.send(results);
     });
   });
@@ -250,12 +283,15 @@ module.exports = function (app) {
       }
     }).then(function (results) {
       res.json(results);
-      db.comments.destroy({});
+      db.comments.destroy({
+        where: {},
+        truncate: true
+      });
     });
   });
 
   app.get("/api/module13", function (req, res) {
-    db.module13.findAll({}).then(function(results) {
+    db.module13.findAll({}).then(function (results) {
       res.send(results);
     });
   });
@@ -268,12 +304,15 @@ module.exports = function (app) {
       }
     }).then(function (results) {
       res.json(results);
-      db.comments.destroy({});
+      db.comments.destroy({
+        where: {},
+        truncate: true
+      });
     });
   });
 
   app.get("/api/module14", function (req, res) {
-    db.module14.findAll({}).then(function(results) {
+    db.module14.findAll({}).then(function (results) {
       res.send(results);
     });
   });
@@ -286,12 +325,15 @@ module.exports = function (app) {
       }
     }).then(function (results) {
       res.json(results);
-      db.comments.destroy({});
+      db.comments.destroy({
+        where: {},
+        truncate: true
+      });
     });
   });
 
   app.get("/api/module15", function (req, res) {
-    db.module15.findAll({}).then(function(results) {
+    db.module15.findAll({}).then(function (results) {
       res.send(results);
     });
   });
@@ -304,12 +346,15 @@ module.exports = function (app) {
       }
     }).then(function (results) {
       res.json(results);
-      db.comments.destroy({});
+      db.comments.destroy({
+        where: {},
+        truncate: true
+      });
     });
   });
 
   app.get("/api/module16", function (req, res) {
-    db.module16.findAll({}).then(function(results) {
+    db.module16.findAll({}).then(function (results) {
       res.send(results);
     });
   });
@@ -322,10 +367,13 @@ module.exports = function (app) {
       }
     }).then(function (results) {
       res.json(results);
-      db.comments.destroy({});
+      db.comments.destroy({
+        where: {},
+        truncate: true
+      });
     });
   });
-  
+
   // Verify email not in use
   // app.post("/api/users", function (req, res) {
   //   var newUser = req.body;
@@ -363,9 +411,9 @@ module.exports = function (app) {
         password: newUser.password
       }
     }).then(function (result) {
-        console.log(result[1]);
-        return res.send(result);
-      
+      console.log(result[1]);
+      return res.send(result);
+
     });
   })
 
@@ -385,60 +433,60 @@ module.exports = function (app) {
       if (results.dataValues.admin === true) {
         return res.json("/PTA")
       }
-      (results.dataValues.admin === false) 
+      (results.dataValues.admin === false)
       res.json("/STU")
-      
+
     })
   })
 
 
-    // Route for getting some data about our user to be used client side
-    app.get("/api/user_data", function(req, res) {
-      if (!req.user) {
-        // The user is not logged in, send back an empty object
-        res.json({});
-      }
-      else {
-        // Otherwise send back the user's email and id
-        // Sending back a password, even a hashed password, isn't a good idea
-        res.json({
-          email: req.user.email,
-          id: req.user.id,
-          name: req.user.name,
-          displayName: req.user.userName,
-          theme: req.user.theme,
-          picture: req.user.picture,
-          linkedin: req.user.linkedin,
-          github: req.user.github,
-          instagram: req.user.instagram,
-          facebook: req.user.facebook,
-          twitter: req.user.twitter
-          //portfolio: req.user.portfolio
-        });
-      }
-    })
+  // Route for getting some data about our user to be used client side
+  app.get("/api/user_data", function (req, res) {
+    if (!req.user) {
+      // The user is not logged in, send back an empty object
+      res.json({});
+    }
+    else {
+      // Otherwise send back the user's email and id
+      // Sending back a password, even a hashed password, isn't a good idea
+      res.json({
+        email: req.user.email,
+        id: req.user.id,
+        name: req.user.name,
+        displayName: req.user.userName,
+        theme: req.user.theme,
+        picture: req.user.picture,
+        linkedin: req.user.linkedin,
+        github: req.user.github,
+        instagram: req.user.instagram,
+        facebook: req.user.facebook,
+        twitter: req.user.twitter
+        //portfolio: req.user.portfolio
+      });
+    }
+  })
 
-    //update themes for the user
-    app.put("/api/themes", function(req, res) {
-      console.log(req.body)
-      // Update takes in an object describing the properties we want to update, and
-      // we use where to describe which objects we want to update
-      db.userTable.update({
-        theme: req.body.theme,
-      }, {
+  //update themes for the user
+  app.put("/api/themes", function (req, res) {
+    console.log(req.body)
+    // Update takes in an object describing the properties we want to update, and
+    // we use where to describe which objects we want to update
+    db.userTable.update({
+      theme: req.body.theme,
+    }, {
         where: {
           email: req.body.email,
         }
       })
-    });
+  });
 
-    //logs user out
-    app.get("/logout", function(req, res){
-      req.logout();
-      req.session.destroy();
-      res.redirect("/")
-    })
-  
+  //logs user out
+  app.get("/logout", function (req, res) {
+    req.logout();
+    req.session.destroy();
+    res.redirect("/")
+  })
+
 
 
 }

@@ -38,7 +38,11 @@ io.on('connection', function (socket) {
   socket.on("newChat", function(data) {
     io.emit("newChat", data);
   });
+  socket.on("newAdminChat", function(data) {
+    io.emit("newAdminChat", data);
+  });
   socket.on("newTime", function(data) {
+    console.log("server " + data);
     io.emit("newTime", data);
   });
 });
